@@ -1,5 +1,5 @@
 $OFS = "`r`n"
-$scriptname = "winutil.ps1"
+$scriptname = "litu.ps1"
 
 
 if (Test-Path -Path "$($scriptname)")

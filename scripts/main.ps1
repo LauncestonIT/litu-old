@@ -170,12 +170,12 @@ $tabcolums=Get-TabXaml "feature"
 $inputXML = $inputXML -replace "{{InstallPanel_features}}", ($tabcolums)
 
 if ((Get-WinUtilToggleStatus WPFToggleDarkMode) -eq $True) {
-    $ctttheme = 'Matrix'
+    $litutheme = 'Matrix'
 }
 else {
-    $ctttheme = 'Classic'
+    $litutheme = 'Matrix'
 }
-$inputXML = Set-WinUtilUITheme -inputXML $inputXML -themeName $ctttheme
+$inputXML = Set-WinUtilUITheme -inputXML $inputXML -themeName $litutheme
 
 [void][System.Reflection.Assembly]::LoadWithPartialName('presentationframework')
 [xml]$XAML = $inputXML
