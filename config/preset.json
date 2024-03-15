@@ -1,0 +1,33 @@
+{
+  "desktop": [
+    "WPFTweaksAH",
+    "WPFTweaksDVR",
+    "WPFTweaksHiber",
+    "WPFTweaksHome",
+    "WPFTweaksLoc",
+    "WPFTweaksOO",
+    "WPFTweaksServices",
+    "WPFTweaksStorage",
+    "WPFTweaksTele",
+    "WPFTweaksWifi",
+    "WPFMiscTweaksPower"
+  ],
+  "laptop": [
+    "WPFTweaksAH",
+    "WPFTweaksDVR",
+    "WPFTweaksHome",
+    "WPFTweaksLoc",
+    "WPFTweaksOO",
+    "WPFTweaksServices",
+    "WPFTweaksStorage",
+    "WPFTweaksTele",
+    "WPFTweaksWifi",
+    "WPFMiscTweaksLapPower"
+  ],
+  "minimal": [
+    "WPFTweaksHome",
+    "WPFTweaksOO",
+    "WPFTweaksServices",
+    "WPFTweaksTele"
+  ]
+}
