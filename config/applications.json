@@ -175,46 +175,6 @@
 		"link": "https://www.apple.com/itunes/",
 		"winget": "Apple.iTunes"
 	},
-	"WPFInstalljava16": {
-		"category": "Development",
-		"choco": "temurin16jre",
-		"content": "OpenJDK Java 16",
-		"description": "OpenJDK Java 16 is the latest version of the open-source Java development kit.",
-		"link": "https://adoptopenjdk.net/",
-		"winget": "AdoptOpenJDK.OpenJDK.16"
-	},
-	"WPFInstalljava18": {
-		"category": "Development",
-		"choco": "temurin18jre",
-		"content": "Oracle Java 18",
-		"description": "Oracle Java 18 is the latest version of the official Java development kit from Oracle.",
-		"link": "https://www.oracle.com/java/",
-		"winget": "EclipseAdoptium.Temurin.18.JRE"
-	},
-	"WPFInstalljava20": {
-		"category": "Development",
-		"choco": "na",
-		"content": "Azul Zulu JDK 20",
-		"description": "Azul Zulu JDK 20 is a distribution of the OpenJDK with long-term support, performance enhancements, and security updates.",
-		"link": "https://www.azul.com/downloads/zulu-community/",
-		"winget": "Azul.Zulu.20.JDK"
-	},
-	"WPFInstalljava21": {
-		"category": "Development",
-		"choco": "na",
-		"content": "Azul Zulu JDK 21",
-		"description": "Azul Zulu JDK 21 is a distribution of the OpenJDK with long-term support, performance enhancements, and security updates.",
-		"link": "https://www.azul.com/downloads/zulu-community/",
-		"winget": "Azul.Zulu.21.JDK"
-	},
-	"WPFInstalljava8": {
-		"category": "Development",
-		"choco": "temurin8jre",
-		"content": "OpenJDK Java 8",
-		"description": "OpenJDK Java 8 is an open-source implementation of the Java Platform, Standard Edition.",
-		"link": "https://adoptopenjdk.net/",
-		"winget": "EclipseAdoptium.Temurin.8.JRE"
-	},
 	"WPFInstalllocalsend": {
 		"category": "Utilities",
 		"choco": "localsend.install",
@@ -223,7 +183,13 @@
 		"link": "https://localsend.org/",
 		"winget": "LocalSend.LocalSend"
 	},
-
+	"WPFInstalmicrosoft365": {
+		"category": "Microsoft Tools",
+		"content": "Microsoft 365",
+		"description": "Microsoft 365 is a product family of productivity software, collaboration and cloud-based services owned by Microsoft.",
+		"link": "https://www.microsoft.com/en-au/microsoft-365",
+		"winget": "Microsoft.Office"
+	},
 	"WPFInstallnanazip": {
 		"category": "Utilities",
 		"choco": "nanazip",
