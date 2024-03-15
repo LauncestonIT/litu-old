@@ -8,5 +8,5 @@ function Invoke-WPFCloseButton {
     .PARAMETER Button
     #>
     $sync["Form"].Close()
-    Write-Host "Bye bye!"
+    Write-Host "Exiting.."
 }
