@@ -24,7 +24,7 @@
 		"winget": "Adobe.Acrobat.Reader.64-bit"
 	},
 	"WPFInstalladvancedip": {
-		"category": "Pro Tools",
+		"category": "Utilities",
 		"choco": "advanced-ip-scanner",
 		"content": "Advanced IP Scanner",
 		"description": "Advanced IP Scanner is a fast and easy-to-use network scanner. It is designed to analyze LAN networks and provides information about connected devices.",
@@ -207,7 +207,7 @@
 		"winget": "Cyanfish.NAPS2"
 	},
 	"WPFInstallnmap": {
-		"category": "Pro Tools",
+		"category": "Utilities",
 		"choco": "nmap",
 		"content": "Nmap",
 		"description": "Nmap (Network Mapper) is an open-source tool for network exploration and security auditing. It discovers devices on a network and provides information about their ports and services.",
@@ -223,7 +223,7 @@
 		"winget": "Microsoft.OneDrive"
 	},
 	"WPFInstallOpenVPN": {
-		"category": "Pro Tools",
+		"category": "Utilities",
 		"choco": "openvpn-connect",
 		"content": "OpenVPN Connect",
 		"description": "OpenVPN Connect is an open-source VPN client that allows you to connect securely to a VPN server. It provides a secure and encrypted connection for protecting your online privacy.",
@@ -313,7 +313,7 @@
 		"winget": "Git.Git;Microsoft.VisualStudioCode"
 	},
 	"WPFInstallwireshark": {
-		"category": "Pro Tools",
+		"category": "Utilities",
 		"choco": "wireshark",
 		"content": "WireShark",
 		"description": "Wireshark is a widely-used open-source network protocol analyzer. It allows users to capture and analyze network traffic in real-time, providing detailed insights into network activities.",
