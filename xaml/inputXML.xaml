@@ -8,7 +8,7 @@
         Background="{MainBackgroundColor}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="Launceston IT Windows Utility" Height="800" Width="1280">
+        Title="Launceston IT Windows Utility" Height="600" Width="800">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" CornerRadius="10"/>
     </WindowChrome.WindowChrome>
@@ -207,7 +207,7 @@
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{ButtonBackgroundMouseoverColor}"/>
                                 <Setter Property="Effect">
                                     <Setter.Value>
-                                        <DropShadowEffect Opacity="1" ShadowDepth="5" Color="Gold" Direction="-100" BlurRadius="45"/>
+                                        <DropShadowEffect Opacity="0" ShadowDepth="5" Color="Gold" Direction="-100" BlurRadius="45"/>
                                     </Setter.Value>
                                 </Setter>
                                 <Setter Property="Panel.ZIndex" Value="2000"/>
@@ -218,7 +218,7 @@
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{ButtonBackgroundSelectedColor}"/>
                                 <Setter Property="Effect">
                                     <Setter.Value>
-                                        <DropShadowEffect Opacity="1" ShadowDepth="2" Color="Gold" Direction="-111" BlurRadius="25"/>
+                                        <DropShadowEffect Opacity="0" ShadowDepth="2" Color="Gold" Direction="-111" BlurRadius="25"/>
                                     </Setter.Value>
                                 </Setter>
                             </Trigger>
@@ -411,14 +411,14 @@
                                     Background="#FFFFFFFF"
                                     Width="70" Height="25">
                                 <Border.Effect>
-                                    <DropShadowEffect ShadowDepth="0.5" Direction="0" Opacity="0.3" />
+                                    <DropShadowEffect ShadowDepth="0.5" Direction="0" Opacity="0" />
                                 </Border.Effect>
                                 <Ellipse x:Name="Ellipse" Fill="#FFFFFFFF" Stretch="Uniform"
                                         Margin="2 2 2 1"
                                         Stroke="Gray" StrokeThickness="0.2"
                                         HorizontalAlignment="Left" Width="22">
                                     <Ellipse.Effect>
-                                        <DropShadowEffect BlurRadius="10" ShadowDepth="1" Opacity="0.3" Direction="260" />
+                                        <DropShadowEffect BlurRadius="10" ShadowDepth="1" Opacity="0" Direction="260" />
                                     </Ellipse.Effect>
                                 </Ellipse>
                             </Border>

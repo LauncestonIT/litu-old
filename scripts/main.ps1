@@ -118,7 +118,7 @@ function Get-TabXaml {
             $blockXml += "<Label Content=""$($category -replace '^.__', '')"" FontSize=""16""/>`n"
             $sortedApps = $organizedData[$panel][$category].Keys | Sort-Object
             foreach ($appName in $sortedApps) {
-                $count++
+                #$count++
                 if ($columncount -gt 0) {
                     $panelcount2 = [Int](($count)/$maxcount-0.5)
                     if ($panelcount -eq $panelcount2 ) {
@@ -306,9 +306,6 @@ $commonKeyEvents = {
         }
         if ($_.SystemKey -eq "U") {
             Invoke-WPFButton "WPFTab4BT"
-        }
-        if ($_.SystemKey -eq "M") {
-            Invoke-WPFButton "WPFTab5BT"
         }
         if ($_.SystemKey -eq "P") {
             Write-Host "Your Windows Product Key: $((Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey)"
