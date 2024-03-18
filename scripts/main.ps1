@@ -108,7 +108,7 @@ function Get-TabXaml {
         foreach ($category in ($organizedData[$panel].Keys | Sort-Object)) {
             $count++
             if ($columncount -gt 0) {
-                $panelcount2 = [Int](($count)/$maxcount-0.5)
+                $panelcount2 = 2
                 if ($panelcount -eq $panelcount2 ) {
                     $blockXml +="`n</StackPanel>`n</Border>`n"
                     $blockXml += "<Border Grid.Row=""1"" Grid.Column=""$panelcount"">`n<StackPanel Background=""{MainBackgroundColor}"" SnapsToDevicePixels=""True"">`n"
@@ -118,7 +118,7 @@ function Get-TabXaml {
             $blockXml += "<Label Content=""$($category -replace '^.__', '')"" FontSize=""16""/>`n"
             $sortedApps = $organizedData[$panel][$category].Keys | Sort-Object
             foreach ($appName in $sortedApps) {
-                #$count++
+                $count++
                 if ($columncount -gt 0) {
                     $panelcount2 = [Int](($count)/$maxcount-0.5)
                     if ($panelcount -eq $panelcount2 ) {
@@ -162,7 +162,7 @@ function Get-TabXaml {
     return ($blockXml)
 }
 
-$tabcolums=Get-TabXaml "applications" 5
+$tabcolums=Get-TabXaml "applications" 2
 $inputXML = $inputXML -replace "{{InstallPanel_applications}}", ($tabcolums)
 $tabcolums=Get-TabXaml "tweaks"
 $inputXML = $inputXML -replace "{{InstallPanel_tweaks}}", ($tabcolums)
