@@ -301,7 +301,7 @@ $commonKeyEvents = {
         if ($_.SystemKey -eq "T") {
             Invoke-WPFButton "WPFTab2BT"
         }
-        if ($_.SystemKey -eq "C") {
+        if ($_.SystemKey -eq "F") {
             Invoke-WPFButton "WPFTab3BT"
         }
         if ($_.SystemKey -eq "U") {

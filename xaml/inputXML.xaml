@@ -594,7 +594,7 @@
                 Background="{ButtonConfigBackgroundColor}" Foreground="{ButtonConfigForegroundColor}" FontWeight="Bold" Name="WPFTab3BT">
                 <ToggleButton.Content>
                     <TextBlock Background="Transparent" Foreground="{ButtonConfigForegroundColor}">
-                        <Underline>C</Underline>onfig
+                        <Underline>F</Underline>eatures
                     </TextBlock>
                 </ToggleButton.Content>
             </ToggleButton>
