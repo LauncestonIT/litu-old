@@ -55,46 +55,6 @@
 		"link": "https://www.google.com/chrome/",
 		"winget": "Google.Chrome"
 	},
-	"WPFInstalldotnet3": {
-		"category": "Microsoft Tools",
-		"choco": "dotnetcore3-desktop-runtime",
-		"content": ".NET Desktop Runtime 3.1",
-		"description": ".NET Desktop Runtime 3.1 is a runtime environment required for running applications developed with .NET Core 3.1.",
-		"link": "https://dotnet.microsoft.com/download/dotnet/3.1",
-		"winget": "Microsoft.DotNet.DesktopRuntime.3_1"
-	},
-	"WPFInstalldotnet5": {
-		"category": "Microsoft Tools",
-		"choco": "dotnet-5.0-runtime",
-		"content": ".NET Desktop Runtime 5",
-		"description": ".NET Desktop Runtime 5 is a runtime environment required for running applications developed with .NET 5.",
-		"link": "https://dotnet.microsoft.com/download/dotnet/5.0",
-		"winget": "Microsoft.DotNet.DesktopRuntime.5"
-	},
-	"WPFInstalldotnet6": {
-		"category": "Microsoft Tools",
-		"choco": "dotnet-6.0-runtime",
-		"content": ".NET Desktop Runtime 6",
-		"description": ".NET Desktop Runtime 6 is a runtime environment required for running applications developed with .NET 6.",
-		"link": "https://dotnet.microsoft.com/download/dotnet/6.0",
-		"winget": "Microsoft.DotNet.DesktopRuntime.6"
-	},
-	"WPFInstalldotnet7": {
-		"category": "Microsoft Tools",
-		"choco": "dotnet-7.0-runtime",
-		"content": ".NET Desktop Runtime 7",
-		"description": ".NET Desktop Runtime 7 is a runtime environment required for running applications developed with .NET 7.",
-		"link": "https://dotnet.microsoft.com/download/dotnet/7.0",
-		"winget": "Microsoft.DotNet.DesktopRuntime.7"
-	},
-	"WPFInstalldotnet8": {
-		"category": "Microsoft Tools",
-		"choco": "dotnet-8.0-runtime",
-		"content": ".NET Desktop Runtime 8",
-		"description": ".NET Desktop Runtime 8 is a runtime environment required for running applications developed with .NET 7.",
-		"link": "https://dotnet.microsoft.com/download/dotnet/8.0",
-		"winget": "Microsoft.DotNet.DesktopRuntime.8"
-	},
 	"WPFInstalledge": {
 		"category": "Browsers",
 		"choco": "microsoft-edge",
@@ -184,7 +144,8 @@
 		"winget": "LocalSend.LocalSend"
 	},
 	"WPFInstalmicrosoft365": {
-		"category": "Microsoft Tools",
+		"category": "Microsoft",
+		"choco": "localsend.install",
 		"content": "Microsoft 365",
 		"description": "Microsoft 365 is a product family of productivity software, collaboration and cloud-based services owned by Microsoft.",
 		"link": "https://www.microsoft.com/en-au/microsoft-365",
@@ -215,7 +176,7 @@
 		"winget": "Insecure.Nmap"
 	},
 	"WPFInstallonedrive": {
-		"category": "Microsoft Tools",
+		"category": "Microsoft",
 		"choco": "onedrive",
 		"content": "OneDrive",
 		"description": "OneDrive is a cloud storage service provided by Microsoft, allowing users to store and share files securely across devices.",
@@ -239,7 +200,7 @@
 		"winget": "dotPDNLLC.paintdotnet"
 	},
 	"WPFInstallpowershell": {
-		"category": "Microsoft Tools",
+		"category": "Microsoft",
 		"choco": "powershell-core",
 		"content": "PowerShell",
 		"description": "PowerShell is a task automation framework and scripting language designed for system administrators, offering powerful command-line capabilities.",
@@ -247,7 +208,7 @@
 		"winget": "Microsoft.PowerShell"
 	},
 	"WPFInstallpowertoys": {
-		"category": "Microsoft Tools",
+		"category": "Microsoft",
 		"choco": "powertoys",
 		"content": "Powertoys",
 		"description": "PowerToys is a set of utilities for power users to enhance productivity, featuring tools like FancyZones, PowerRename, and more.",
@@ -272,7 +233,7 @@
 		"winget": "TeamViewer.TeamViewer"
 	},
 	"WPFInstallterminal": {
-		"category": "Microsoft Tools",
+		"category": "Microsoft",
 		"choco": "microsoft-windows-terminal",
 		"content": "Windows Terminal",
 		"description": "Windows Terminal is a modern, fast, and efficient terminal application for command-line users, supporting multiple tabs, panes, and more.",
@@ -281,7 +242,7 @@
 	},
 
 	"WPFInstallvc2015_32": {
-		"category": "Microsoft Tools",
+		"category": "Microsoft",
 		"choco": "na",
 		"content": "Visual C++ 2015-2022 32-bit",
 		"description": "Visual C++ 2015-2022 32-bit redistributable package installs runtime components of Visual C++ libraries required to run 32-bit applications.",
@@ -289,7 +250,7 @@
 		"winget": "Microsoft.VCRedist.2015+.x86"
 	},
 	"WPFInstallvc2015_64": {
-		"category": "Microsoft Tools",
+		"category": "Microsoft",
 		"choco": "na",
 		"content": "Visual C++ 2015-2022 64-bit",
 		"description": "Visual C++ 2015-2022 64-bit redistributable package installs runtime components of Visual C++ libraries required to run 64-bit applications.",
