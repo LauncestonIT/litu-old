@@ -676,15 +676,21 @@
                 <Grid Background="Transparent" >
                    
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="45px"/>
+                        <RowDefinition Height="75px"/>
                         <RowDefinition Height="0.95*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Background="{MainBackgroundColor}" Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
+                    <StackPanel Background="{MainBackgroundColor}" Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
                         <Button Name="WPFinstall" Content=" Install Selected" Margin="2" />
                         <Button Name="WPFInstallUpgrade" Content=" Upgrade All" Margin="2"/>
                         <Button Name="WPFuninstall" Content=" Uninstall Selection" Margin="2"/>
                         <Button Name="WPFGetInstalled" Content=" Get Installed" Margin="2"/>
                         <Button Name="WPFclearWinget" Content=" Clear Selection" Margin="2"/>
+                    </StackPanel>
+
+                    <StackPanel Background="{MainBackgroundColor}" Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
+                        <Label Content="Recommended Selections:" FontSize="14" VerticalAlignment="Top"/>
+                        <Button Name="WPFclient" Content=" Client " Margin="2"/>
+                        <Button Name="WPFinternal" Content=" Internal " Margin="2"/>
                     </StackPanel>
 
                     <ScrollViewer Grid.Row="1" Grid.Column="0" Padding="-1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" 
