@@ -24,8 +24,8 @@ function Invoke-WPFButton {
         "WPFdesktop" {Invoke-WPFPresets "Desktop"}
         "WPFlaptop" {Invoke-WPFPresets "laptop"}
         "WPFminimal" {Invoke-WPFPresets "minimal"}
-        "WPFclient" {Invoke-WPFPresets "client"}
-        "WPFinternal" {Invoke-WPFPresets "internal"}
+        "WPFclient" {Invoke-WPFPresets "client" -CheckBox "WPFInstall"}
+        "WPFinternal" {Invoke-WPFPresets "internal" -CheckBox "WPFInstall"}
         "WPFclear" {Invoke-WPFPresets -preset $null -imported $true}
         "WPFclearWinget" {Invoke-WPFPresets -preset $null -imported $true -CheckBox "WPFInstall"}
         "WPFtweaksbutton" {Invoke-WPFtweaksbutton}
