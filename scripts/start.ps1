@@ -1,10 +1,3 @@
-<#
-.NOTES
-    Author         : Chris Titus @christitustech
-    Runspace Author: @DeveloperDurp
-    GitHub         : https://github.com/ChrisTitusTech
-    Version        : #{replaceme}
-#>
 param (
     [switch]$Debug,
     [string]$Config,

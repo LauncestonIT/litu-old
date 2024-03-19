@@ -725,7 +725,7 @@
                     </Grid>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="Config" Visibility="Collapsed" Name="WPFTab3">
+            <TabItem Header="Features" Visibility="Collapsed" Name="WPFTab3">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid Background="Transparent">
                     {{InstallPanel_features}}

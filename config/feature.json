@@ -13,26 +13,6 @@
 
     ]
   },
-  "WPFFeatureshyperv": {
-    "Content": "HyperV Virtualization",
-    "Description": "Hyper-V is a hardware virtualization product developed by Microsoft that allows users to create and manage virtual machines.",
-    "category": "Features",
-    "panel": "1",
-    "Order": "a011_",
-    "feature": [
-      "HypervisorPlatform",
-      "Microsoft-Hyper-V-All",
-      "Microsoft-Hyper-V",
-      "Microsoft-Hyper-V-Tools-All",
-      "Microsoft-Hyper-V-Management-PowerShell",
-      "Microsoft-Hyper-V-Hypervisor",
-      "Microsoft-Hyper-V-Services",
-      "Microsoft-Hyper-V-Management-Clients"
-    ],
-    "InvokeScript": [
-      "Start-Process -FilePath cmd.exe -ArgumentList '/c bcdedit /set hypervisorschedulertype classic' -Wait"
-    ]
-  },
   "WPFFeatureslegacymedia": {
     "Content": "Legacy Media (WMP, DirectPlay)",
     "Description": "Enables legacy programs from previous versions of windows",
@@ -136,62 +116,12 @@
       "
     ]
   },
-  "WPFFeatureEnableLegacyRecovery": {
-    "Content": "Enable Legacy F8 Boot Recovery",
-    "Description": "Enables Advanced Boot Options screen that lets you start Windows in advanced troubleshooting modes.",
-    "category": "Features",
-    "panel": "1",
-    "Order": "a018_",
-    "feature": [
-    ],
-    "InvokeScript": [
-      "
-      If (!(Test-Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Configuration Manager\\LastKnownGood')) {
-            New-Item -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Configuration Manager\\LastKnownGood' -Force | Out-Null
-      }
-      New-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Configuration Manager\\LastKnownGood' -Name 'Enabled' -Type DWord -Value 1 -Force
-      Start-Process -FilePath cmd.exe -ArgumentList '/c bcdedit /Set {Current} BootMenuPolicy Legacy' -Wait
-      "
-    ]
-  },
-  "WPFFeatureDisableLegacyRecovery": {
-    "Content": "Disable Legacy F8 Boot Recovery",
-    "Description": "Disables Advanced Boot Options screen that lets you start Windows in advanced troubleshooting modes.",
-    "category": "Features",
-    "panel": "1",
-    "Order": "a019_",
-    "feature": [
-    ],
-    "InvokeScript": [
-      "
-      If (!(Test-Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Configuration Manager\\LastKnownGood')) {
-            New-Item -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Configuration Manager\\LastKnownGood' -Force | Out-Null
-      }
-      New-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Configuration Manager\\LastKnownGood' -Name 'Enabled' -Type DWord -Value 0 -Force
-      Start-Process -FilePath cmd.exe -ArgumentList '/c bcdedit /Set {Current} BootMenuPolicy Standard' -Wait
-      "
-    ]
-  },
-  "WPFFeaturesandbox": {
-    "Content": "Windows Sandbox",
-    "category": "Features",
-    "panel": "1",
-    "Order": "a021_",
-    "Description": "Windows Sandbox is a lightweight virtual machine that provides a temporary desktop environment to safely run applications and programs in isolation."
-  },
   "WPFFeatureInstall": {
     "Content": "Install Features",
     "category": "Features",
     "panel": "1",
     "Order": "a060_",
     "Type": "150"
-  },
-  "WPFPanelAutologin": {
-    "Content": "Set Up Autologin",
-    "category": "Fixes",
-    "Order": "a040_",
-    "panel": "1",
-    "Type": "300"
   },
   "WPFFixesUpdate": {
     "Content": "Reset Windows Update",
@@ -220,54 +150,5 @@
     "panel": "1",
     "Order": "a044_",
     "Type": "300"
-  },
-  "WPFRunAdobeCCCleanerTool": {
-    "Content": "Remove Adobe Creative Cloud",
-    "category": "Fixes",
-    "panel": "1",
-    "Order": "a045_",
-    "Type": "300"
-  },
-  "WPFPanelnetwork": {
-    "Content": "Network Connections",
-    "category": "Legacy Windows Panels",
-    "panel": "2",
-    "Type": "200"
-  },
-  "WPFPanelcontrol": {
-    "Content": "Control Panel",
-    "category": "Legacy Windows Panels",
-    "panel": "2",
-    "Type": "200"
-  },
-  "WPFPanelpower": {
-    "Content": "Power Panel",
-    "category": "Legacy Windows Panels",
-    "panel": "2",
-    "Type": "200"
-  },
-  "WPFPanelregion": {
-    "Content": "Region",
-    "category": "Legacy Windows Panels",
-    "panel": "2",
-    "Type": "200"
-  },
-  "WPFPanelsound": {
-    "Content": "Sound Settings",
-    "category": "Legacy Windows Panels",
-    "panel": "2",
-    "Type": "200"
-  },
-  "WPFPanelsystem": {
-    "Content": "System Properties",
-    "category": "Legacy Windows Panels",
-    "panel": "2",
-    "Type": "200"
-  },
-  "WPFPaneluser": {
-    "Content": "User Accounts",
-    "category": "Legacy Windows Panels",
-    "panel": "2",
-    "Type": "200"
   }
 }
