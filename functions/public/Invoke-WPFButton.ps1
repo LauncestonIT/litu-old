@@ -44,7 +44,6 @@ function Invoke-WPFButton {
         "WPFPaneluser" {Invoke-WPFControlPanel -Panel $button}
         "WPFUpdatesdefault" {Invoke-WPFUpdatesdefault}
         "WPFFixesUpdate" {Invoke-WPFFixesUpdate}
-        "WPFFixesWinget" {Invoke-WPFFixesWinget}
         "WPFRunAdobeCCCleanerTool" {Invoke-WPFRunAdobeCCCleanerTool}
         "WPFFixesNetwork" {Invoke-WPFFixesNetwork}
         "WPFUpdatessecurity" {Invoke-WPFUpdatessecurity}

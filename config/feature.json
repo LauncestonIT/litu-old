@@ -143,12 +143,5 @@
     "panel": "1",
     "Order": "a043_",
     "Type": "300"
-  },
-  "WPFFixesWinget": {
-    "Content": "WinGet Reinstall",
-    "category": "Fixes",
-    "panel": "1",
-    "Order": "a044_",
-    "Type": "300"
   }
 }

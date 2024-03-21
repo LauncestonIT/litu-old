@@ -37,12 +37,6 @@ $sync.runspace.Open()
         WingetFailedInstall($Message) : base($Message) {}
     }
 
-    class ChocoFailedInstall : Exception {
-        [string] $additionalData
-
-        ChocoFailedInstall($Message) : base($Message) {}
-    }
-
     class GenericException : Exception {
         [string] $additionalData
 
@@ -67,7 +61,6 @@ function Get-TabXaml {
             Name = $appName
             Category = $appInfo.Category
             Content = $appInfo.Content
-            Choco = $appInfo.choco
             Winget = $appInfo.winget
             Panel = if ($columncount -gt 0 ) { "0" } else {$appInfo.panel}
             Link = $appInfo.link
@@ -256,9 +249,6 @@ Invoke-WPFRunspace -ScriptBlock {
 
 # Print the logo
 Invoke-WPFFormVariables
-
-# Check if Chocolatey is installed
-Install-WinUtilChoco
 
 # Set the titlebar
 $sync["Form"].title = $sync["Form"].title + " " + $sync.version

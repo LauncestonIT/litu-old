@@ -46,8 +46,6 @@ Function Get-WinUtilCheckBoxes {
 
                         if (-not [string]::IsNullOrWhiteSpace($wingetValue) -and $wingetValue -ne "na") {
                             $wingetValue -split ";"
-                        } else {
-                            $sync.configs.applications.$($CheckBox.Name).choco
                         }
                     }
                     default {

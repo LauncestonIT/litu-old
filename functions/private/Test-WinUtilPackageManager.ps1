@@ -2,19 +2,15 @@ function Test-WinUtilPackageManager {
     <#
 
     .SYNOPSIS
-        Checks if Winget and/or Choco are installed
+        Checks if Winget is installed
 
     .PARAMETER winget
         Check if Winget is installed
 
-    .PARAMETER choco
-        Check if Chocolatey is installed
-
     #>
 
     Param(
-        [System.Management.Automation.SwitchParameter]$winget,
-        [System.Management.Automation.SwitchParameter]$choco
+        [System.Management.Automation.SwitchParameter]$winget
     )
 
     # Install Winget if not detected
@@ -38,13 +34,6 @@ function Test-WinUtilPackageManager {
     if ($winget) {
         if ($wingetExists -and !$wingetOutdated) {
             Write-Host "- Winget up-to-date"
-            return $true
-        }
-    }
-
-    if($choco){
-        if ((Get-Command -Name choco -ErrorAction Ignore) -and ($chocoVersion = (Get-Item "$env:ChocolateyInstall\choco.exe" -ErrorAction Ignore).VersionInfo.ProductVersion)){
-            Write-Host "Chocolatey v$chocoVersion"
             return $true
         }
     }
