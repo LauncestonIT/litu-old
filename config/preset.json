@@ -35,14 +35,12 @@
     "WPFInstalladobe",
     "WPFInstalmicrosoft365",
     "WPFInstallonedrive",
-    "WPFInstallvc2015_64",
     "WPFInstallbitwarden",
     "WPFInstallteams"
   ],
   "internal": [
     "WPFInstall1password",
     "WPFInstall7zip",
-    "WPFInstalladobe",
     "WPFInstalladvancedip",
     "WPFInstallgreenshot",
     "WPFInstalllocalsend",
@@ -51,7 +49,6 @@
     "WPFInstallOpenVPN",
     "WPFInstallpowershell",
     "WPFInstallteams",
-    "WPFInstallterminal",
-    "WPFInstallvc2015_64"    
+    "WPFInstallterminal"
   ]
 }
