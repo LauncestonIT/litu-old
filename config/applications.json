@@ -48,6 +48,13 @@
 		"link": "https://www.google.com/chrome/",
 		"winget": "Google.Chrome"
 	},
+	"WPFInstalldrawio": {
+		"category": "Multimedia Tools",
+		"content": "draw.io",
+		"description": "Microsoft Edge is a modern web browser built on Chromium, offering performance, security, and integration with Microsoft services.",
+		"link": "https://app.diagrams.net/",
+		"winget": "JGraph.Draw"
+	},
 	"WPFInstalledge": {
 		"category": "Browsers",
 		"content": "Edge",

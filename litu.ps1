@@ -3897,6 +3897,13 @@ $sync.configs.applications = '{
 		"link": "https://www.google.com/chrome/",
 		"winget": "Google.Chrome"
 	},
+	"WPFInstalldrawio": {
+		"category": "Multimedia Tools",
+		"content": "draw.io",
+		"description": "Microsoft Edge is a modern web browser built on Chromium, offering performance, security, and integration with Microsoft services.",
+		"link": "https://app.diagrams.net/",
+		"winget": "JGraph.Draw"
+	},
 	"WPFInstalledge": {
 		"category": "Browsers",
 		"content": "Edge",
@@ -6433,7 +6440,7 @@ Add-Type @"
 "@
     }
 
-    foreach ($proc in (Get-Process | Where-Object { $_.MainWindowTitle -and $_.MainWindowTitle -like "*lit*" })) {
+    foreach ($proc in (Get-Process | Where-Object { $_.MainWindowTitle -and $_.MainWindowTitle -like "*litu*" })) {
         if ($proc.Id -ne [System.IntPtr]::Zero) {
             Write-Debug "MainWindowHandle: $($proc.Id) $($proc.MainWindowTitle) $($proc.MainWindowHandle)"
             $windowHandle = $proc.MainWindowHandle
