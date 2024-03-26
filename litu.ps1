@@ -3900,7 +3900,7 @@ $sync.configs.applications = '{
 	"WPFInstalldrawio": {
 		"category": "Multimedia Tools",
 		"content": "draw.io",
-		"description": "Microsoft Edge is a modern web browser built on Chromium, offering performance, security, and integration with Microsoft services.",
+		"description": "draw.io is free online diagram software for making flowcharts, process diagrams, org charts, UML, ER and network diagrams.",
 		"link": "https://app.diagrams.net/",
 		"winget": "JGraph.Draw"
 	},
@@ -4044,7 +4044,13 @@ $sync.configs.applications = '{
 		"link": "https://github.com/microsoft/PowerToys",
 		"winget": "Microsoft.PowerToys"
 	},
-
+	"WPFInstallrufus": {
+		"category": "Utilities",
+		"content": "Rufus",
+		"description": "Rufus is a utility that helps format and create bootable USB flash drives, such as USB keys/pendrives, memory sticks, etc.",
+		"link": "https://rufus.ie/en/",
+		"winget": "Rufus.Rufus"
+	},
 	"WPFInstallteams": {
 		"category": "Communications",
 		"content": "Teams",
