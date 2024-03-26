@@ -40,7 +40,7 @@ Add-Type -AssemblyName System.Windows.Forms
 # Variable to sync between runspaces
 $sync = [Hashtable]::Synchronized(@{})
 $sync.PSScriptRoot = $PSScriptRoot
-$sync.version = "24.03.26"
+$sync.version = "24.03.27"
 $sync.configs = @{}
 $sync.ProcessRunning = $false
 
@@ -3849,7 +3849,7 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
 </Window>'
 $sync.configs.applications = '{
 	"WPFInstall1password": {
-		"category": "Utilities",
+		"category": "Password Managers",
 		"content": "1Password",
 		"description": "1Password is a password manager that allows you to store and manage your passwords securely.",
 		"link": "https://1password.com/",
@@ -3884,7 +3884,7 @@ $sync.configs.applications = '{
 		"winget": "AnyDeskSoftwareGmbH.AnyDesk"
 	},
 	"WPFInstallbitwarden": {
-		"category": "Utilities",
+		"category": "Password Managers",
 		"content": "Bitwarden",
 		"description": "Bitwarden is an open-source password management solution. It allows users to store and manage their passwords in a secure and encrypted vault, accessible across multiple devices.",
 		"link": "https://bitwarden.com/",
@@ -4299,14 +4299,12 @@ $sync.configs.preset = '{
     "WPFInstalladobe",
     "WPFInstalmicrosoft365",
     "WPFInstallonedrive",
-    "WPFInstallvc2015_64",
     "WPFInstallbitwarden",
     "WPFInstallteams"
   ],
   "internal": [
     "WPFInstall1password",
     "WPFInstall7zip",
-    "WPFInstalladobe",
     "WPFInstalladvancedip",
     "WPFInstallgreenshot",
     "WPFInstalllocalsend",
@@ -4315,8 +4313,7 @@ $sync.configs.preset = '{
     "WPFInstallOpenVPN",
     "WPFInstallpowershell",
     "WPFInstallteams",
-    "WPFInstallterminal",
-    "WPFInstallvc2015_64"    
+    "WPFInstallterminal"
   ]
 }' | convertfrom-json
 $sync.configs.themes = '{
