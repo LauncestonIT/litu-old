@@ -210,21 +210,6 @@
 		"link": "https://aka.ms/terminal",
 		"winget": "Microsoft.WindowsTerminal"
 	},
-
-	"WPFInstallvc2015_32": {
-		"category": "Microsoft",
-		"content": "Visual C++ 2015-2022 32-bit",
-		"description": "Visual C++ 2015-2022 32-bit redistributable package installs runtime components of Visual C++ libraries required to run 32-bit applications.",
-		"link": "https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads",
-		"winget": "Microsoft.VCRedist.2015+.x86"
-	},
-	"WPFInstallvc2015_64": {
-		"category": "Microsoft",
-		"content": "Visual C++ 2015-2022 64-bit",
-		"description": "Visual C++ 2015-2022 64-bit redistributable package installs runtime components of Visual C++ libraries required to run 64-bit applications.",
-		"link": "https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads",
-		"winget": "Microsoft.VCRedist.2015+.x64"
-	},
 	"WPFInstallvlc": {
 		"category": "Multimedia Tools",
 		"content": "VLC (Video Player)",

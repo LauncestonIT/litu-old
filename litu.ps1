@@ -40,7 +40,7 @@ Add-Type -AssemblyName System.Windows.Forms
 # Variable to sync between runspaces
 $sync = [Hashtable]::Synchronized(@{})
 $sync.PSScriptRoot = $PSScriptRoot
-$sync.version = "24.03.21"
+$sync.version = "24.03.26"
 $sync.configs = @{}
 $sync.ProcessRunning = $false
 
@@ -4058,21 +4058,6 @@ $sync.configs.applications = '{
 		"description": "Windows Terminal is a modern, fast, and efficient terminal application for command-line users, supporting multiple tabs, panes, and more.",
 		"link": "https://aka.ms/terminal",
 		"winget": "Microsoft.WindowsTerminal"
-	},
-
-	"WPFInstallvc2015_32": {
-		"category": "Microsoft",
-		"content": "Visual C++ 2015-2022 32-bit",
-		"description": "Visual C++ 2015-2022 32-bit redistributable package installs runtime components of Visual C++ libraries required to run 32-bit applications.",
-		"link": "https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads",
-		"winget": "Microsoft.VCRedist.2015+.x86"
-	},
-	"WPFInstallvc2015_64": {
-		"category": "Microsoft",
-		"content": "Visual C++ 2015-2022 64-bit",
-		"description": "Visual C++ 2015-2022 64-bit redistributable package installs runtime components of Visual C++ libraries required to run 64-bit applications.",
-		"link": "https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads",
-		"winget": "Microsoft.VCRedist.2015+.x64"
 	},
 	"WPFInstallvlc": {
 		"category": "Multimedia Tools",
