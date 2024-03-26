@@ -8,7 +8,7 @@
         Background="{MainBackgroundColor}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="Launceston IT Windows Utility" Height="600" Width="800">
+        Title="Launceston IT's Windows Utility" Height="600" Width="800">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" CornerRadius="10"/>
     </WindowChrome.WindowChrome>

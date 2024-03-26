@@ -3092,7 +3092,7 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
         Background="{MainBackgroundColor}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="Launceston IT Windows Utility" Height="600" Width="800">
+        Title="Launceston IT''s Windows Utility" Height="600" Width="800">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" CornerRadius="10"/>
     </WindowChrome.WindowChrome>
@@ -4109,22 +4109,6 @@ $sync.configs.dns = '{
     "Cloudflare":{
         "Primary": "1.1.1.1",
         "Secondary": "1.0.0.1"
-    },
-    "Cloudflare_Malware":{
-        "Primary": "1.1.1.2",
-        "Secondary": "1.0.0.2"
-    },
-    "Cloudflare_Malware_Adult":{
-        "Primary": "1.1.1.3",
-        "Secondary": "1.0.0.3"
-    },
-    "Level3":{
-        "Primary": "4.2.2.2",
-        "Secondary": "4.2.2.1"
-    },
-    "Open_DNS":{
-        "Primary": "208.67.222.222",
-        "Secondary": "208.67.220.220"
     },
     "Quad9":{
         "Primary": "9.9.9.9",
