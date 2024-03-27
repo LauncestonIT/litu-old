@@ -244,6 +244,20 @@
 		"link": "https://www.wireshark.org/",
 		"winget": "WiresharkFoundation.Wireshark"
 	},
+	"WPFInstallzohoassist": {
+		"category": "Remote Support",
+		"content": "Zoho Assist",
+		"description": "Zoho Assist is a user-friendly, comprehensive remote access software that helps you quickly initiate secure remote support sessions.",
+		"link": "https://www.zoho.com/cliq/",
+		"winget": "8f5c6577-6b10-57e0-97b8-9d8b59d5f4d6"
+	},
+	"WPFInstallzohocliq": {
+		"category": "Communications",
+		"content": "Zoho Cliq",
+		"description": "Zoho Cliq is a communication platform with chat, video, file sharing, task management.",
+		"link": "https://www.zoho.com/cliq/",
+		"winget": "9MVPHLK2M32S"
+	},
 	"WPFInstallzoom": {
 		"category": "Communications",
 		"content": "Zoom",
