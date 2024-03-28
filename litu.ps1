@@ -5921,7 +5921,7 @@ $sync.configs.tweaks = '{
   "WPFTweaksRightClickMenu": {
     "Content": "Set Classic Right-Click Menu ",
     "Description": "Great Windows 11 tweak to bring back good context menus when right clicking things in explorer.",
-    "category": "z__Advanced Tweaks - CAUTION",
+    "category": "Advanced Tweaks",
     "panel": "1",
     "Order": "a028_",
     "InvokeScript": [
@@ -5936,8 +5936,8 @@ $sync.configs.tweaks = '{
   },
   "WPFTweaksFastStartup": {
     "Content": "Disable Fast Startup ",
-    "Description": "Fast Startup is the devil .",
-    "category": "z__Advanced Tweaks - CAUTION",
+    "Description": " .",
+    "category": "Essential Tweaks",
     "panel": "1",
     "Order": "a029_",
     "registry": [
