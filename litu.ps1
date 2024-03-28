@@ -40,7 +40,7 @@ Add-Type -AssemblyName System.Windows.Forms
 # Variable to sync between runspaces
 $sync = [Hashtable]::Synchronized(@{})
 $sync.PSScriptRoot = $PSScriptRoot
-$sync.version = "24.03.27"
+$sync.version = "24.03.28"
 $sync.configs = @{}
 $sync.ProcessRunning = $false
 
@@ -5932,6 +5932,22 @@ $sync.configs.tweaks = '{
       Remove-Item -Path \"HKCU:\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\" -Recurse -Confirm:$false -Force
       Write-Host Restart Needed for change
       "
+    ]
+  },
+  "WPFTweaksFastStartup": {
+    "Content": "Disable Fast Startup ",
+    "Description": "Fast Startup is the devil .",
+    "category": "z__Advanced Tweaks - CAUTION",
+    "panel": "1",
+    "Order": "a029_",
+    "registry": [
+      {
+        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+        "Name": "HiberbootEnabled",
+        "Type": "DWord",
+        "Value": "0",
+        "OriginalValue": "1"
+      }
     ]
   },
   "WPFTweaksDiskCleanup": {

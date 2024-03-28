@@ -1538,6 +1538,22 @@
       "
     ]
   },
+  "WPFTweaksFastStartup": {
+    "Content": "Disable Fast Startup ",
+    "Description": "Fast Startup is the devil .",
+    "category": "z__Advanced Tweaks - CAUTION",
+    "panel": "1",
+    "Order": "a029_",
+    "registry": [
+      {
+        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+        "Name": "HiberbootEnabled",
+        "Type": "DWord",
+        "Value": "0",
+        "OriginalValue": "1"
+      }
+    ]
+  },
   "WPFTweaksDiskCleanup": {
     "Content": "Run Disk Cleanup",
     "Description": "Runs Disk Cleanup on Drive C: and removes old Windows Updates.",
