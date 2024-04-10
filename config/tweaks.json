@@ -186,14 +186,6 @@
     "Order": "a067_",
     "Type": "Toggle"
   },
-  "WPFchangedns": {
-    "Content": "DNS",
-    "category": "z__Advanced Tweaks - CAUTION",
-    "panel": "1",
-    "Order": "a040_",
-    "Type": "Combobox",
-    "ComboItems": "Default DHCP Google Cloudflare Cloudflare_Malware Cloudflare_Malware_Adult Level3 Open_DNS Quad9"
-  },
   "WPFTweaksbutton": {
     "Content": "Run Tweaks",
     "category": "Tweaks",
