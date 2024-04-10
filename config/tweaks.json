@@ -58,7 +58,7 @@
   "WPFTweaksRestorePoint": {
     "Content": "Create Restore Point",
     "Description": "Creates a restore point at runtime in case a revert is needed from WinUtil modifications",
-    "category": "Essential Tweaks",
+    "category": "Tweaks",
     "panel": "1",
     "Checked": "True",
     "Order": "a001_",
@@ -100,8 +100,8 @@
   },
   "WPFTweaksRightClickMenu": {
     "Content": "Set Classic Right-Click Menu ",
-    "Description": "Great Windows 11 tweak to bring back good context menus when right clicking things in explorer.",
-    "category": "Advanced Tweaks",
+    "Description": "Brings back old context menus when right clicking things in explorer.",
+    "category": "Tweaks",
     "panel": "1",
     "Order": "a028_",
     "InvokeScript": [
@@ -117,7 +117,7 @@
   "WPFTweaksFastStartup": {
     "Content": "Disable Fast Startup ",
     "Description": " .",
-    "category": "Essential Tweaks",
+    "category": "Tweaks",
     "panel": "1",
     "Order": "a029_",
     "registry": [
@@ -133,7 +133,7 @@
   "WPFTweaksDiskCleanup": {
     "Content": "Run Disk Cleanup",
     "Description": "Runs Disk Cleanup on Drive C: and removes old Windows Updates.",
-    "category": "Essential Tweaks",
+    "category": "Tweaks",
     "panel": "1",
     "Order": "a007_",
     "InvokeScript": [
@@ -146,7 +146,7 @@
   "WPFTweaksDVR": {
     "Content": "Disable GameDVR",
     "Description": "GameDVR is a Windows App that is a dependency for some Store Games. I've never met someone that likes it, but it's there for the XBOX crowd.",
-    "category": "Essential Tweaks",
+    "category": "Tweaks",
     "panel": "1",
     "Order": "a012_",
     "registry": [
@@ -252,14 +252,14 @@
   },
   "WPFTweaksbutton": {
     "Content": "Run Tweaks",
-    "category": "z__Advanced Tweaks - CAUTION",
+    "category": "Tweaks",
     "panel": "1",
     "Order": "a041_",
     "Type": "160"
   },
   "WPFUndoall": {
     "Content": "Undo Selected Tweaks",
-    "category": "z__Advanced Tweaks - CAUTION",
+    "category": "Tweaks",
     "panel": "1",
     "Order": "a042_",
     "Type": "160"
