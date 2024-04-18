@@ -673,15 +673,6 @@
                         <Button Name="WPFclear" Content=" Clear " Margin="1"/>
                         <Button Name="WPFGetInstalledTweaks" Content=" Get Installed " Margin="1"/>
                     </StackPanel>
-                    <Border Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="0">
-                        <StackPanel Background="{MainBackgroundColor}" Orientation="Horizontal" HorizontalAlignment="Left">
-                            <TextBlock Padding="10">
-                                Note: Hover over items to get a better description. Please be careful as many of these tweaks will heavily modify your system.
-                                <LineBreak/>Recommended selections are for normal users and if you are unsure do NOT check anything else!
-                            </TextBlock>
-                        </StackPanel>
-                    </Border>
-
                     </Grid>
                 </ScrollViewer>
             </TabItem>
