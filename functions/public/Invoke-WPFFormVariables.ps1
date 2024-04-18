@@ -25,7 +25,7 @@ Function Invoke-WPFFormVariables {
     Write-Host "           '---'                   :  ,      .-./ "
     Write-Host "                                    `--`----'     "
     Write-Host ""
-    Write-Host "====Launceston IT====="
+    Write-Host "=====Launceston IT======"
     Write-Host "=====Windows Utility====="
 
     #====DEBUG GUI Elements====
