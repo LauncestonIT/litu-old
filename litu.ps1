@@ -4019,6 +4019,14 @@ $sync.configs.applications = '{
 		"link": "https://rufus.ie/en/",
 		"winget": "Rufus.Rufus"
 	},
+	"WPFInstallsysinternalssuite": {
+		"category": "Utilities",
+		"content": "Sysinternals Suite",
+		"description": "The Sysinternals Troubleshooting Utilities have been rolled up into a single Suite of tools.",
+		"link": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite",
+		"winget": "9P7KNL5RWT25"
+	},
+	
 	"WPFInstallteams": {
 		"category": "Communications",
 		"content": "Teams",
