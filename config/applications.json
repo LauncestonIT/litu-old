@@ -14,21 +14,21 @@
 		"winget": "7zip.7zip"
 	},
 	"WPFInstalladobe": {
-		"category": "Document",
+		"category": "Office",
 		"content": "Adobe Reader DC",
 		"description": "Adobe Reader DC is a free PDF viewer with essential features for viewing, printing, and annotating PDF documents.",
 		"link": "https://acrobat.adobe.com/",
 		"winget": "Adobe.Acrobat.Reader.64-bit"
 	},
 	"WPFInstalladvancedip": {
-		"category": "Utilities",
+		"category": "Network",
 		"content": "Advanced IP Scanner",
 		"description": "Advanced IP Scanner is a fast and easy-to-use network scanner. It is designed to analyze LAN networks and provides information about connected devices.",
 		"link": "https://www.advanced-ip-scanner.com/",
 		"winget": "Famatech.AdvancedIPScanner"
 	},
 	"WPFInstallanydesk": {
-		"category": "Utilities",
+		"category": "Remote Support",
 		"content": "AnyDesk",
 		"description": "AnyDesk is a remote desktop software that enables users to access and control computers remotely. It is known for its fast connection and low latency.",
 		"link": "https://anydesk.com/",
@@ -133,7 +133,7 @@
 		"winget": "LocalSend.LocalSend"
 	},
 	"WPFInstallmicrosoft365": {
-		"category": "Microsoft",
+		"category": "Office",
 		"content": "Microsoft 365",
 		"description": "Microsoft 365 is a product family of productivity software, collaboration and cloud-based services owned by Microsoft.",
 		"link": "https://www.microsoft.com/en-au/microsoft-365",
@@ -147,28 +147,28 @@
 		"winget": "M2Team.NanaZip"
 	},
 	"WPFInstallnaps2": {
-		"category": "Document",
+		"category": "Office",
 		"content": "NAPS2 (Document Scanner)",
 		"description": "NAPS2 is a document scanning application that simplifies the process of creating electronic documents.",
 		"link": "https://www.naps2.com/",
 		"winget": "Cyanfish.NAPS2"
 	},
 	"WPFInstallnmap": {
-		"category": "Utilities",
+		"category": "Network",
 		"content": "Nmap",
 		"description": "Nmap (Network Mapper) is an open-source tool for network exploration and security auditing. It discovers devices on a network and provides information about their ports and services.",
 		"link": "https://nmap.org/",
 		"winget": "Insecure.Nmap"
 	},
 	"WPFInstallonedrive": {
-		"category": "Microsoft",
+		"category": "Office",
 		"content": "OneDrive",
 		"description": "OneDrive is a cloud storage service provided by Microsoft, allowing users to store and share files securely across devices.",
 		"link": "https://onedrive.live.com/",
 		"winget": "Microsoft.OneDrive"
 	},
 	"WPFInstallOpenVPN": {
-		"category": "Utilities",
+		"category": "Network",
 		"content": "OpenVPN Connect",
 		"description": "OpenVPN Connect is an open-source VPN client that allows you to connect securely to a VPN server. It provides a secure and encrypted connection for protecting your online privacy.",
 		"link": "https://openvpn.net/",
@@ -182,14 +182,14 @@
 		"winget": "dotPDNLLC.paintdotnet"
 	},
 	"WPFInstallpowershell": {
-		"category": "Microsoft",
+		"category": "Development",
 		"content": "PowerShell",
 		"description": "PowerShell is a task automation framework and scripting language designed for system administrators, offering powerful command-line capabilities.",
 		"link": "https://github.com/PowerShell/PowerShell",
 		"winget": "Microsoft.PowerShell"
 	},
 	"WPFInstallpowertoys": {
-		"category": "Microsoft",
+		"category": "Utilities",
 		"content": "Powertoys",
 		"description": "PowerToys is a set of utilities for power users to enhance productivity, featuring tools like FancyZones, PowerRename, and more.",
 		"link": "https://github.com/microsoft/PowerToys",
@@ -209,15 +209,8 @@
 		"link": "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software",
 		"winget": "Microsoft.Teams"
 	},
-	"WPFInstallteamviewer": {
-		"category": "Utilities",
-		"content": "TeamViewer",
-		"description": "TeamViewer is a popular remote access and support software that allows you to connect to and control remote devices.",
-		"link": "https://www.teamviewer.com/",
-		"winget": "TeamViewer.TeamViewer"
-	},
 	"WPFInstallterminal": {
-		"category": "Microsoft",
+		"category": "Utilities",
 		"content": "Windows Terminal",
 		"description": "Windows Terminal is a modern, fast, and efficient terminal application for command-line users, supporting multiple tabs, panes, and more.",
 		"link": "https://aka.ms/terminal",
@@ -237,8 +230,22 @@
 		"link": "https://code.visualstudio.com/",
 		"winget": "Git.Git;Microsoft.VisualStudioCode"
 	},
+	"WPFInstallwifimandesktop": {
+		"category": "Network",
+		"content": "WiFiman Desktop",
+		"description": "UniFi Device Discovery.",
+		"link": "https://www.wireshark.org/",
+		"winget": "UbiquitiInc.WiFimanDesktop"
+	},
+	"WPFInstallwinscp": {
+		"category": "Network",
+		"content": "WinSCP",
+		"description": "WinSCP is a free and open-source file manager, SSH File Transfer Protocol, File Transfer Protocol, WebDAV, Amazon S3, and secure copy protocol client for Microsoft Windows.",
+		"link": "https://winscp.net/eng/download.php",
+		"winget": "WinSCP.WinSCP"
+	},
 	"WPFInstallwireshark": {
-		"category": "Utilities",
+		"category": "Network",
 		"content": "WireShark",
 		"description": "Wireshark is a widely-used open-source network protocol analyzer. It allows users to capture and analyze network traffic in real-time, providing detailed insights into network activities.",
 		"link": "https://www.wireshark.org/",
