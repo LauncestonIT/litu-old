@@ -8,7 +8,7 @@
         Background="{MainBackgroundColor}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="Launceston IT's Windows Utility" Height="600" Width="800">
+        Title="Launceston IT's Windows Utility" Height="750" Width="800">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" CornerRadius="10"/>
     </WindowChrome.WindowChrome>
@@ -205,22 +205,12 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{ButtonBackgroundMouseoverColor}"/>
-                                <Setter Property="Effect">
-                                    <Setter.Value>
-                                        <DropShadowEffect Opacity="0" ShadowDepth="5" Color="Gold" Direction="-100" BlurRadius="45"/>
-                                    </Setter.Value>
-                                </Setter>
                                 <Setter Property="Panel.ZIndex" Value="2000"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="BorderBrush" Value="Pink"/>
                                 <Setter Property="BorderThickness" Value="2"/>
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{ButtonBackgroundSelectedColor}"/>
-                                <Setter Property="Effect">
-                                    <Setter.Value>
-                                        <DropShadowEffect Opacity="0" ShadowDepth="2" Color="Gold" Direction="-111" BlurRadius="25"/>
-                                    </Setter.Value>
-                                </Setter>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="False">
                                 <Setter Property="BorderBrush" Value="Transparent"/>
@@ -410,16 +400,10 @@
                             <Border x:Name="Border" CornerRadius="10"
                                     Background="#FFFFFFFF"
                                     Width="70" Height="25">
-                                <Border.Effect>
-                                    <DropShadowEffect ShadowDepth="0.5" Direction="0" Opacity="0" />
-                                </Border.Effect>
                                 <Ellipse x:Name="Ellipse" Fill="#FFFFFFFF" Stretch="Uniform"
                                         Margin="2 2 2 1"
-                                        Stroke="Gray" StrokeThickness="0.2"
+                                        Stroke="DarkGray" StrokeThickness="0.2"
                                         HorizontalAlignment="Left" Width="22">
-                                    <Ellipse.Effect>
-                                        <DropShadowEffect BlurRadius="10" ShadowDepth="1" Opacity="0" Direction="260" />
-                                    </Ellipse.Effect>
                                 </Ellipse>
                             </Border>
 
@@ -506,31 +490,6 @@
             <Setter Property="CornerRadius" Value="5"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Margin" Value="5"/>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect ShadowDepth="5" BlurRadius="5" Opacity="{BorderOpacity}" Color="{BorderColor}"/>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
-                            <!-- <DoubleAnimation
-                                Storyboard.TargetProperty="Effect.(DropShadowEffect.ShadowDepth)"
-                                From="6" To="15" Duration="{ShadowPulse}" AutoReverse="True"/> -->
-                            <!-- <DoubleAnimation
-                                Storyboard.TargetProperty="Effect.(DropShadowEffect.Direction)"
-                                From="0" To="360" Duration="Forever"/> -->
-                            <DoubleAnimation
-                                Storyboard.TargetProperty="Effect.(DropShadowEffect.Opacity)"
-                                From="0.5" To="0.94" Duration="{ShadowPulse}" AutoReverse="True"/>
-                            <DoubleAnimation
-                                Storyboard.TargetProperty="Effect.(DropShadowEffect.BlurRadius)"
-                                From="5" To="15" Duration="{ShadowPulse}" AutoReverse="True"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Style.Triggers>
         </Style>
 
         <Style TargetType="TextBox">
@@ -554,11 +513,6 @@
                             </Grid>
                         </Border>
                     </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect ShadowDepth="5" BlurRadius="5" Opacity="{BorderOpacity}" Color="{BorderColor}"/>
                 </Setter.Value>
             </Setter>
         </Style>
@@ -719,15 +673,6 @@
                         <Button Name="WPFclear" Content=" Clear " Margin="1"/>
                         <Button Name="WPFGetInstalledTweaks" Content=" Get Installed " Margin="1"/>
                     </StackPanel>
-                    <Border Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="0">
-                        <StackPanel Background="{MainBackgroundColor}" Orientation="Horizontal" HorizontalAlignment="Left">
-                            <TextBlock Padding="10">
-                                Note: Hover over items to get a better description. Please be careful as many of these tweaks will heavily modify your system.
-                                <LineBreak/>Recommended selections are for normal users and if you are unsure do NOT check anything else!
-                            </TextBlock>
-                        </StackPanel>
-                    </Border>
-
                     </Grid>
                 </ScrollViewer>
             </TabItem>

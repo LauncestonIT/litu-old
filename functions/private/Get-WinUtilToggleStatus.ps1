@@ -89,4 +89,13 @@ Function Get-WinUtilToggleStatus {
             return $true
         }
     }
+    if ($ToggleSwitch -eq "WPFToggleLeftAlignTaskbar"){
+        $LeftAlignEnabled = (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").TaskbarAl
+        if($LeftAlignEnabled -eq 0){
+            return $true
+        }
+        else{
+            return $false
+        }
+    }
 }

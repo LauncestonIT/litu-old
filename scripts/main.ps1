@@ -99,7 +99,7 @@ function Get-TabXaml {
         $blockXml += "<Border Grid.Row=""1"" Grid.Column=""$panelcount"">`n<StackPanel Background=""{MainBackgroundColor}"" SnapsToDevicePixels=""True"">`n"
         $panelcount++
         foreach ($category in ($organizedData[$panel].Keys | Sort-Object)) {
-            $count++
+            # $count++
             if ($columncount -gt 0) {
                 $panelcount2 = [Int](($count)/$maxcount-0.5)
                 if ($panelcount -eq $panelcount2 ) {
@@ -318,17 +318,6 @@ $sync["Form"].Add_MouseLeftButtonDown({
         $sync["SettingsPopup"].IsOpen = $false
     }
     $sync["Form"].DragMove()
-})
-
-$sync["Form"].Add_MouseDoubleClick({
-    if ($sync["Form"].WindowState -eq [Windows.WindowState]::Normal)
-    {
-        $sync["Form"].WindowState = [Windows.WindowState]::Maximized;
-    }
-    else
-    {
-        $sync["Form"].WindowState = [Windows.WindowState]::Normal;
-    }
 })
 
 $sync["Form"].Add_Deactivated({
