@@ -4413,6 +4413,19 @@ $sync.configs.tweaks = '{
       "
     ]
   },
+  "WPFTweaksLeftAlignedTasbar": {
+    "Content": "Set Left Aligned Taskbar",
+    "Description": "Aligns the taskbar left.",
+    "category": "Tweaks",
+    "panel": "1",
+    "Order": "a029_",
+    "InvokeScript": [
+      "New-Item -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"TaskbarAl\" -value 0 -Type DWORD"
+    ],
+    "UndoScript": [
+      "Remove-Item -Path ''HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\"  -Confirm:$false -Force"
+    ]
+  },
   "WPFTweaksFastStartup": {
     "Content": "Disable Fast Startup ",
     "Description": " .",
