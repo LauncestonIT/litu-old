@@ -209,13 +209,6 @@
 		"link": "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software",
 		"winget": "Microsoft.Teams"
 	},
-	"WPFInstallteamviewer": {
-		"category": "Utilities",
-		"content": "TeamViewer",
-		"description": "TeamViewer is a popular remote access and support software that allows you to connect to and control remote devices.",
-		"link": "https://www.teamviewer.com/",
-		"winget": "TeamViewer.TeamViewer"
-	},
 	"WPFInstallterminal": {
 		"category": "Microsoft",
 		"content": "Windows Terminal",

@@ -4059,6 +4059,20 @@ $sync.configs.applications = '{
 		"link": "https://code.visualstudio.com/",
 		"winget": "Git.Git;Microsoft.VisualStudioCode"
 	},
+	"WPFInstallwifimandesktop": {
+		"category": "Utilities",
+		"content": "WiFiman Desktop",
+		"description": "UniFi Device Discovery.",
+		"link": "https://www.wireshark.org/",
+		"winget": "UbiquitiInc.WiFimanDesktop"
+	},
+	"WPFInstallwinscp": {
+		"category": "Utilities",
+		"content": "WinSCP",
+		"description": "WinSCP is a free and open-source file manager, SSH File Transfer Protocol, File Transfer Protocol, WebDAV, Amazon S3, and secure copy protocol client for Microsoft Windows.",
+		"link": "https://winscp.net/eng/download.php",
+		"winget": "WinSCP.WinSCP"
+	},
 	"WPFInstallwireshark": {
 		"category": "Utilities",
 		"content": "WireShark",
