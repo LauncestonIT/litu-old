@@ -33,7 +33,7 @@
   "client": [
     "WPFInstall7zip",
     "WPFInstalladobe",
-    "WPFInstalmicrosoft365",
+    "WPFInstallmicrosoft365",
     "WPFInstallonedrive",
     "WPFInstallbitwarden",
     "WPFInstallteams"
@@ -44,7 +44,7 @@
     "WPFInstalladvancedip",
     "WPFInstallgreenshot",
     "WPFInstalllocalsend",
-    "WPFInstalmicrosoft365",
+    "WPFInstallmicrosoft365",
     "WPFInstallonedrive",
     "WPFInstallOpenVPN",
     "WPFInstallpowershell",

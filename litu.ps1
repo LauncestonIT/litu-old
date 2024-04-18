@@ -3954,7 +3954,7 @@ $sync.configs.applications = '{
 		"link": "https://localsend.org/",
 		"winget": "LocalSend.LocalSend"
 	},
-	"WPFInstalmicrosoft365": {
+	"WPFInstallmicrosoft365": {
 		"category": "Microsoft",
 		"content": "Microsoft 365",
 		"description": "Microsoft 365 is a product family of productivity software, collaboration and cloud-based services owned by Microsoft.",
@@ -4270,7 +4270,7 @@ $sync.configs.preset = '{
   "client": [
     "WPFInstall7zip",
     "WPFInstalladobe",
-    "WPFInstalmicrosoft365",
+    "WPFInstallmicrosoft365",
     "WPFInstallonedrive",
     "WPFInstallbitwarden",
     "WPFInstallteams"
@@ -4281,7 +4281,7 @@ $sync.configs.preset = '{
     "WPFInstalladvancedip",
     "WPFInstallgreenshot",
     "WPFInstalllocalsend",
-    "WPFInstalmicrosoft365",
+    "WPFInstallmicrosoft365",
     "WPFInstallonedrive",
     "WPFInstallOpenVPN",
     "WPFInstallpowershell",

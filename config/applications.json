@@ -132,7 +132,7 @@
 		"link": "https://localsend.org/",
 		"winget": "LocalSend.LocalSend"
 	},
-	"WPFInstalmicrosoft365": {
+	"WPFInstallmicrosoft365": {
 		"category": "Microsoft",
 		"content": "Microsoft 365",
 		"description": "Microsoft 365 is a product family of productivity software, collaboration and cloud-based services owned by Microsoft.",
