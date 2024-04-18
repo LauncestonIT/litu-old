@@ -65,10 +65,10 @@
     "panel": "1",
     "Order": "a029_",
     "InvokeScript": [
-      "New-Item -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"TaskbarAl\" -value 0 -Type DWORD"
+      "New-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"TaskbarAl\" -Force -Value 0 -PropertyType DWORD"
     ],
     "UndoScript": [
-      "Remove-Item -Path 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\"  -Confirm:$false -Force"
+      "Remove-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"TaskbarAl\" -Force"
     ]
   },
   "WPFTweaksFastStartup": {
@@ -76,7 +76,7 @@
     "Description": " .",
     "category": "Tweaks",
     "panel": "1",
-    "Order": "a029_",
+    "Order": "a030_",
     "registry": [
       {
         "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -173,6 +173,14 @@
     "category": "Customize Preferences",
     "panel": "2",
     "Order": "a064_",
+    "Type": "Toggle"
+  },
+  "WPFToggleLeftAlignTaskbar": {
+    "Content": "Left Align Taskbar",
+    "Description": "Aligns the taskbar left.",
+    "category": "Customize Preferences",
+    "panel": "2",
+    "Order": "a068_",
     "Type": "Toggle"
   },
   "WPFToggleSnapFlyout": {

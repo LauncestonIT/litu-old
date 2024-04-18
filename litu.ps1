@@ -441,6 +441,16 @@ Function Get-WinUtilToggleStatus {
             return $true
         }
     }
+    if ($ToggleSwitch -eq "WPFToggleLeftAlignTaskbar"){
+        New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAl -Force -Value 1 -PropertyType DWORD
+        $LeftAlignEnabled = (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").TaskbarAl
+        if($LeftAlignEnabled -eq 0){
+            return $true
+        }
+        else{
+            return $false
+        }
+    }
 }
 function Get-WinUtilVariables {
 
@@ -582,6 +592,40 @@ function Install-WinUtilWinget {
     }
     Catch{
         throw [WingetFailedInstall]::new('Failed to install')
+    }
+}
+Function Invoke-LITULeftAlignTaskbar {
+    <#
+
+    .SYNOPSIS
+        Enables/Disables Left Taskbar Align
+
+    .PARAMETER LeftAlignEnabled
+        Indicates the current taskbar state.
+
+    #>
+    Param($LeftAlignEnabled)
+    Try{
+        if ($LeftAlignEnabled -eq $true){
+            Write-Host "Aligning Taskbar to the Left"
+            $LeftAlignValue = 0
+        }
+        else {
+            Write-Host "Centering Taskbar"
+            $LeftAlignValue = 1
+        }
+        $Path = "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced"
+        Set-ItemProperty -Path $Path -Name TaskbarAl -Value $LeftAlignValue
+    }
+    Catch [System.Security.SecurityException] {
+        Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
+    }
+    Catch [System.Management.Automation.ItemNotFoundException] {
+        Write-Warning $psitem.Exception.ErrorRecord
+    }
+    Catch{
+        Write-Warning "Unable to set $Name due to unhandled exception"
+        Write-Warning $psitem.Exception.StackTrace
     }
 }
 function Invoke-WinUtilBingSearch {
@@ -2572,6 +2616,7 @@ function Invoke-WPFToggle {
         "WPFToggleSnapFlyout" {Invoke-WinUtilSnapFlyout $(Get-WinUtilToggleStatus WPFToggleSnapFlyout)}
         "WPFToggleMouseAcceleration" {Invoke-WinUtilMouseAcceleration $(Get-WinUtilToggleStatus WPFToggleMouseAcceleration)}
         "WPFToggleStickyKeys" {Invoke-WinUtilStickyKeys $(Get-WinUtilToggleStatus WPFToggleStickyKeys)}
+        "WPFToggleLeftAlignTaskbar" {Invoke-LITULeftAlignTaskbar $(Get-WinUtilToggleStatus WPFToggleLeftAlignTaskbar)}
     }
 }
 function Invoke-WPFtweaksbutton {
@@ -4420,10 +4465,10 @@ $sync.configs.tweaks = '{
     "panel": "1",
     "Order": "a029_",
     "InvokeScript": [
-      "New-Item -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"TaskbarAl\" -value 0 -Type DWORD"
+      "New-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"TaskbarAl\" -Force -Value 0 -PropertyType DWORD"
     ],
     "UndoScript": [
-      "Remove-Item -Path ''HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\"  -Confirm:$false -Force"
+      "Remove-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"TaskbarAl\" -Force"
     ]
   },
   "WPFTweaksFastStartup": {
@@ -4431,7 +4476,7 @@ $sync.configs.tweaks = '{
     "Description": " .",
     "category": "Tweaks",
     "panel": "1",
-    "Order": "a029_",
+    "Order": "a030_",
     "registry": [
       {
         "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -4528,6 +4573,14 @@ $sync.configs.tweaks = '{
     "category": "Customize Preferences",
     "panel": "2",
     "Order": "a064_",
+    "Type": "Toggle"
+  },
+  "WPFToggleLeftAlignTaskbar": {
+    "Content": "Left Align Taskbar",
+    "Description": "Aligns the taskbar left.",
+    "category": "Customize Preferences",
+    "panel": "2",
+    "Order": "a068_",
     "Type": "Toggle"
   },
   "WPFToggleSnapFlyout": {
