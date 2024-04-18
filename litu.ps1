@@ -613,7 +613,6 @@ Function Invoke-LITULeftAlignTaskbar {
         else {
             Write-Host "Centering Taskbar"
             Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarAl" -Force
-            
         }
     }
     Catch [System.Security.SecurityException] {
@@ -4464,19 +4463,6 @@ $sync.configs.tweaks = '{
       "
     ]
   },
-  "WPFTweaksLeftAlignedTasbar": {
-    "Content": "Set Left Aligned Taskbar",
-    "Description": "Aligns the taskbar left.",
-    "category": "Tweaks",
-    "panel": "1",
-    "Order": "a029_",
-    "InvokeScript": [
-      "New-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"TaskbarAl\" -Force -Value 0 -PropertyType DWORD"
-    ],
-    "UndoScript": [
-      "Remove-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" -Name \"TaskbarAl\" -Force"
-    ]
-  },
   "WPFTweaksFastStartup": {
     "Content": "Disable Fast Startup ",
     "Description": " .",
@@ -4948,17 +4934,6 @@ $sync["Form"].Add_MouseLeftButtonDown({
         $sync["SettingsPopup"].IsOpen = $false
     }
     $sync["Form"].DragMove()
-})
-
-$sync["Form"].Add_MouseDoubleClick({
-    if ($sync["Form"].WindowState -eq [Windows.WindowState]::Normal)
-    {
-        $sync["Form"].WindowState = [Windows.WindowState]::Maximized;
-    }
-    else
-    {
-        $sync["Form"].WindowState = [Windows.WindowState]::Normal;
-    }
 })
 
 $sync["Form"].Add_Deactivated({
