@@ -18,22 +18,31 @@ Function Install-WinUtilProgramWinget {
 
     param(
         $ProgramsToInstall,
-        $manage = "Installing"
+        $manage = "Installing",
+        $NoMachineScope = "9MVPHLK2M32S,8f5c6577-6b10-57e0-97b8-9d8b59d5f4d6"
     )
 
     $x = 0
-    $count = $($ProgramsToInstall -split ",").Count
+    $programsArray = $ProgramsToInstall -split ","
+    $count = $programsArray.Count
+    $noMachineScopeArray = $NoMachineScope -split ","
 
     Write-Progress -Activity "$manage Applications" -Status "Starting" -PercentComplete 0
 
     Foreach ($Program in $($ProgramsToInstall -split ",")){
 
-        Write-Progress -Activity "$manage Applications" -Status "$manage $Program $($x + 1) of $count" -PercentComplete $($x/$count*100)
+        $programTrimmed = $Program.Trim()
+        $scopeOption = "--scope=machine"
+        if ($noMachineScopeArray -contains $programTrimmed) {
+            $scopeOption = ""
+        }
+
+        Write-Progress -Activity "$manage Applications" -Status "$manage $programTrimmed $($x + 1) of $count" -PercentComplete $($x/$count*100)
         if($manage -eq "Installing"){
-            Start-Process -FilePath winget -ArgumentList "install -e --accept-source-agreements --accept-package-agreements --scope=machine --silent $Program" -NoNewWindow -Wait
+            Start-Process -FilePath winget -ArgumentList "install -e --accept-source-agreements --accept-package-agreements $scopeOption --silent $programTrimmed" -NoNewWindow -Wait
         }
         if($manage -eq "Uninstalling"){
-            Start-Process -FilePath winget -ArgumentList "uninstall -e --purge --force --silent $Program" -NoNewWindow -Wait
+            Start-Process -FilePath winget -ArgumentList "uninstall -e --purge --force --silent $programTrimmed" -NoNewWindow -Wait
         }
 
         $X++

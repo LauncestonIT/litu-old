@@ -63,7 +63,7 @@
     "Description": " .",
     "category": "Tweaks",
     "panel": "1",
-    "Order": "a029_",
+    "Order": "a030_",
     "registry": [
       {
         "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -160,6 +160,14 @@
     "category": "Customize Preferences",
     "panel": "2",
     "Order": "a064_",
+    "Type": "Toggle"
+  },
+  "WPFToggleLeftAlignTaskbar": {
+    "Content": "Left Align Taskbar",
+    "Description": "Aligns the taskbar left.",
+    "category": "Customize Preferences",
+    "panel": "2",
+    "Order": "a068_",
     "Type": "Toggle"
   },
   "WPFToggleSnapFlyout": {

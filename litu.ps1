@@ -40,7 +40,7 @@ Add-Type -AssemblyName System.Windows.Forms
 # Variable to sync between runspaces
 $sync = [Hashtable]::Synchronized(@{})
 $sync.PSScriptRoot = $PSScriptRoot
-$sync.version = "24.04.10"
+$sync.version = "24.04.18"
 $sync.configs = @{}
 $sync.ProcessRunning = $false
 
@@ -441,6 +441,15 @@ Function Get-WinUtilToggleStatus {
             return $true
         }
     }
+    if ($ToggleSwitch -eq "WPFToggleLeftAlignTaskbar"){
+        $LeftAlignEnabled = (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").TaskbarAl
+        if($LeftAlignEnabled -eq 0){
+            return $true
+        }
+        else{
+            return $false
+        }
+    }
 }
 function Get-WinUtilVariables {
 
@@ -494,22 +503,31 @@ Function Install-WinUtilProgramWinget {
 
     param(
         $ProgramsToInstall,
-        $manage = "Installing"
+        $manage = "Installing",
+        $NoMachineScope = "9MVPHLK2M32S,8f5c6577-6b10-57e0-97b8-9d8b59d5f4d6"
     )
 
     $x = 0
-    $count = $($ProgramsToInstall -split ",").Count
+    $programsArray = $ProgramsToInstall -split ","
+    $count = $programsArray.Count
+    $noMachineScopeArray = $NoMachineScope -split ","
 
     Write-Progress -Activity "$manage Applications" -Status "Starting" -PercentComplete 0
 
     Foreach ($Program in $($ProgramsToInstall -split ",")){
 
-        Write-Progress -Activity "$manage Applications" -Status "$manage $Program $($x + 1) of $count" -PercentComplete $($x/$count*100)
+        $programTrimmed = $Program.Trim()
+        $scopeOption = "--scope=machine"
+        if ($noMachineScopeArray -contains $programTrimmed) {
+            $scopeOption = ""
+        }
+
+        Write-Progress -Activity "$manage Applications" -Status "$manage $programTrimmed $($x + 1) of $count" -PercentComplete $($x/$count*100)
         if($manage -eq "Installing"){
-            Start-Process -FilePath winget -ArgumentList "install -e --accept-source-agreements --accept-package-agreements --scope=machine --silent $Program" -NoNewWindow -Wait
+            Start-Process -FilePath winget -ArgumentList "install -e --accept-source-agreements --accept-package-agreements $scopeOption --silent $programTrimmed" -NoNewWindow -Wait
         }
         if($manage -eq "Uninstalling"){
-            Start-Process -FilePath winget -ArgumentList "uninstall -e --purge --force --silent $Program" -NoNewWindow -Wait
+            Start-Process -FilePath winget -ArgumentList "uninstall -e --purge --force --silent $programTrimmed" -NoNewWindow -Wait
         }
 
         $X++
@@ -573,6 +591,39 @@ function Install-WinUtilWinget {
     }
     Catch{
         throw [WingetFailedInstall]::new('Failed to install')
+    }
+}
+Function Invoke-LITULeftAlignTaskbar {
+    <#
+
+    .SYNOPSIS
+        Enables/Disables Left Taskbar Align
+
+    .PARAMETER LeftAlignEnabled
+        Indicates the current taskbar state.
+
+    #>
+    Param($LeftAlignEnabled)
+    Try{
+        if ($LeftAlignEnabled -eq $false){
+            Write-Host "Aligning Taskbar to the Left"
+            New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarAl" -Force -Value 0 -PropertyType DWORD
+            
+        }
+        else {
+            Write-Host "Centering Taskbar"
+            Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarAl" -Force
+        }
+    }
+    Catch [System.Security.SecurityException] {
+        Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
+    }
+    Catch [System.Management.Automation.ItemNotFoundException] {
+        Write-Warning $psitem.Exception.ErrorRecord
+    }
+    Catch{
+        Write-Warning "Unable to set $Name due to unhandled exception"
+        Write-Warning $psitem.Exception.StackTrace
     }
 }
 function Invoke-WinUtilBingSearch {
@@ -2563,6 +2614,7 @@ function Invoke-WPFToggle {
         "WPFToggleSnapFlyout" {Invoke-WinUtilSnapFlyout $(Get-WinUtilToggleStatus WPFToggleSnapFlyout)}
         "WPFToggleMouseAcceleration" {Invoke-WinUtilMouseAcceleration $(Get-WinUtilToggleStatus WPFToggleMouseAcceleration)}
         "WPFToggleStickyKeys" {Invoke-WinUtilStickyKeys $(Get-WinUtilToggleStatus WPFToggleStickyKeys)}
+        "WPFToggleLeftAlignTaskbar" {Invoke-LITULeftAlignTaskbar $(Get-WinUtilToggleStatus WPFToggleLeftAlignTaskbar)}
     }
 }
 function Invoke-WPFtweaksbutton {
@@ -3056,7 +3108,7 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
         Background="{MainBackgroundColor}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="Launceston IT''s Windows Utility" Height="600" Width="800">
+        Title="Launceston IT''s Windows Utility" Height="750" Width="800">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" CornerRadius="10"/>
     </WindowChrome.WindowChrome>
@@ -3253,22 +3305,12 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{ButtonBackgroundMouseoverColor}"/>
-                                <Setter Property="Effect">
-                                    <Setter.Value>
-                                        <DropShadowEffect Opacity="0" ShadowDepth="5" Color="Gold" Direction="-100" BlurRadius="45"/>
-                                    </Setter.Value>
-                                </Setter>
                                 <Setter Property="Panel.ZIndex" Value="2000"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="BorderBrush" Value="Pink"/>
                                 <Setter Property="BorderThickness" Value="2"/>
                                 <Setter TargetName="BackgroundBorder" Property="Background" Value="{ButtonBackgroundSelectedColor}"/>
-                                <Setter Property="Effect">
-                                    <Setter.Value>
-                                        <DropShadowEffect Opacity="0" ShadowDepth="2" Color="Gold" Direction="-111" BlurRadius="25"/>
-                                    </Setter.Value>
-                                </Setter>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="False">
                                 <Setter Property="BorderBrush" Value="Transparent"/>
@@ -3458,16 +3500,10 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
                             <Border x:Name="Border" CornerRadius="10"
                                     Background="#FFFFFFFF"
                                     Width="70" Height="25">
-                                <Border.Effect>
-                                    <DropShadowEffect ShadowDepth="0.5" Direction="0" Opacity="0" />
-                                </Border.Effect>
                                 <Ellipse x:Name="Ellipse" Fill="#FFFFFFFF" Stretch="Uniform"
                                         Margin="2 2 2 1"
-                                        Stroke="Gray" StrokeThickness="0.2"
+                                        Stroke="DarkGray" StrokeThickness="0.2"
                                         HorizontalAlignment="Left" Width="22">
-                                    <Ellipse.Effect>
-                                        <DropShadowEffect BlurRadius="10" ShadowDepth="1" Opacity="0" Direction="260" />
-                                    </Ellipse.Effect>
                                 </Ellipse>
                             </Border>
 
@@ -3554,31 +3590,6 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
             <Setter Property="CornerRadius" Value="5"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Margin" Value="5"/>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect ShadowDepth="5" BlurRadius="5" Opacity="{BorderOpacity}" Color="{BorderColor}"/>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
-                            <!-- <DoubleAnimation
-                                Storyboard.TargetProperty="Effect.(DropShadowEffect.ShadowDepth)"
-                                From="6" To="15" Duration="{ShadowPulse}" AutoReverse="True"/> -->
-                            <!-- <DoubleAnimation
-                                Storyboard.TargetProperty="Effect.(DropShadowEffect.Direction)"
-                                From="0" To="360" Duration="Forever"/> -->
-                            <DoubleAnimation
-                                Storyboard.TargetProperty="Effect.(DropShadowEffect.Opacity)"
-                                From="0.5" To="0.94" Duration="{ShadowPulse}" AutoReverse="True"/>
-                            <DoubleAnimation
-                                Storyboard.TargetProperty="Effect.(DropShadowEffect.BlurRadius)"
-                                From="5" To="15" Duration="{ShadowPulse}" AutoReverse="True"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Style.Triggers>
         </Style>
 
         <Style TargetType="TextBox">
@@ -3602,11 +3613,6 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
                             </Grid>
                         </Border>
                     </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect ShadowDepth="5" BlurRadius="5" Opacity="{BorderOpacity}" Color="{BorderColor}"/>
                 </Setter.Value>
             </Setter>
         </Style>
@@ -3767,15 +3773,6 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
                         <Button Name="WPFclear" Content=" Clear " Margin="1"/>
                         <Button Name="WPFGetInstalledTweaks" Content=" Get Installed " Margin="1"/>
                     </StackPanel>
-                    <Border Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="0">
-                        <StackPanel Background="{MainBackgroundColor}" Orientation="Horizontal" HorizontalAlignment="Left">
-                            <TextBlock Padding="10">
-                                Note: Hover over items to get a better description. Please be careful as many of these tweaks will heavily modify your system.
-                                <LineBreak/>Recommended selections are for normal users and if you are unsure do NOT check anything else!
-                            </TextBlock>
-                        </StackPanel>
-                    </Border>
-
                     </Grid>
                 </ScrollViewer>
             </TabItem>
@@ -3827,21 +3824,21 @@ $sync.configs.applications = '{
 		"winget": "7zip.7zip"
 	},
 	"WPFInstalladobe": {
-		"category": "Document",
+		"category": "Office",
 		"content": "Adobe Reader DC",
 		"description": "Adobe Reader DC is a free PDF viewer with essential features for viewing, printing, and annotating PDF documents.",
 		"link": "https://acrobat.adobe.com/",
 		"winget": "Adobe.Acrobat.Reader.64-bit"
 	},
 	"WPFInstalladvancedip": {
-		"category": "Utilities",
+		"category": "Network",
 		"content": "Advanced IP Scanner",
 		"description": "Advanced IP Scanner is a fast and easy-to-use network scanner. It is designed to analyze LAN networks and provides information about connected devices.",
 		"link": "https://www.advanced-ip-scanner.com/",
 		"winget": "Famatech.AdvancedIPScanner"
 	},
 	"WPFInstallanydesk": {
-		"category": "Utilities",
+		"category": "Remote Support",
 		"content": "AnyDesk",
 		"description": "AnyDesk is a remote desktop software that enables users to access and control computers remotely. It is known for its fast connection and low latency.",
 		"link": "https://anydesk.com/",
@@ -3945,8 +3942,8 @@ $sync.configs.applications = '{
 		"link": "https://localsend.org/",
 		"winget": "LocalSend.LocalSend"
 	},
-	"WPFInstalmicrosoft365": {
-		"category": "Microsoft",
+	"WPFInstallmicrosoft365": {
+		"category": "Office",
 		"content": "Microsoft 365",
 		"description": "Microsoft 365 is a product family of productivity software, collaboration and cloud-based services owned by Microsoft.",
 		"link": "https://www.microsoft.com/en-au/microsoft-365",
@@ -3960,28 +3957,28 @@ $sync.configs.applications = '{
 		"winget": "M2Team.NanaZip"
 	},
 	"WPFInstallnaps2": {
-		"category": "Document",
+		"category": "Office",
 		"content": "NAPS2 (Document Scanner)",
 		"description": "NAPS2 is a document scanning application that simplifies the process of creating electronic documents.",
 		"link": "https://www.naps2.com/",
 		"winget": "Cyanfish.NAPS2"
 	},
 	"WPFInstallnmap": {
-		"category": "Utilities",
+		"category": "Network",
 		"content": "Nmap",
 		"description": "Nmap (Network Mapper) is an open-source tool for network exploration and security auditing. It discovers devices on a network and provides information about their ports and services.",
 		"link": "https://nmap.org/",
 		"winget": "Insecure.Nmap"
 	},
 	"WPFInstallonedrive": {
-		"category": "Microsoft",
+		"category": "Office",
 		"content": "OneDrive",
 		"description": "OneDrive is a cloud storage service provided by Microsoft, allowing users to store and share files securely across devices.",
 		"link": "https://onedrive.live.com/",
 		"winget": "Microsoft.OneDrive"
 	},
 	"WPFInstallOpenVPN": {
-		"category": "Utilities",
+		"category": "Network",
 		"content": "OpenVPN Connect",
 		"description": "OpenVPN Connect is an open-source VPN client that allows you to connect securely to a VPN server. It provides a secure and encrypted connection for protecting your online privacy.",
 		"link": "https://openvpn.net/",
@@ -3995,14 +3992,14 @@ $sync.configs.applications = '{
 		"winget": "dotPDNLLC.paintdotnet"
 	},
 	"WPFInstallpowershell": {
-		"category": "Microsoft",
+		"category": "Development",
 		"content": "PowerShell",
 		"description": "PowerShell is a task automation framework and scripting language designed for system administrators, offering powerful command-line capabilities.",
 		"link": "https://github.com/PowerShell/PowerShell",
 		"winget": "Microsoft.PowerShell"
 	},
 	"WPFInstallpowertoys": {
-		"category": "Microsoft",
+		"category": "Utilities",
 		"content": "Powertoys",
 		"description": "PowerToys is a set of utilities for power users to enhance productivity, featuring tools like FancyZones, PowerRename, and more.",
 		"link": "https://github.com/microsoft/PowerToys",
@@ -4022,15 +4019,8 @@ $sync.configs.applications = '{
 		"link": "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software",
 		"winget": "Microsoft.Teams"
 	},
-	"WPFInstallteamviewer": {
-		"category": "Utilities",
-		"content": "TeamViewer",
-		"description": "TeamViewer is a popular remote access and support software that allows you to connect to and control remote devices.",
-		"link": "https://www.teamviewer.com/",
-		"winget": "TeamViewer.TeamViewer"
-	},
 	"WPFInstallterminal": {
-		"category": "Microsoft",
+		"category": "Utilities",
 		"content": "Windows Terminal",
 		"description": "Windows Terminal is a modern, fast, and efficient terminal application for command-line users, supporting multiple tabs, panes, and more.",
 		"link": "https://aka.ms/terminal",
@@ -4050,8 +4040,22 @@ $sync.configs.applications = '{
 		"link": "https://code.visualstudio.com/",
 		"winget": "Git.Git;Microsoft.VisualStudioCode"
 	},
+	"WPFInstallwifimandesktop": {
+		"category": "Network",
+		"content": "WiFiman Desktop",
+		"description": "UniFi Device Discovery.",
+		"link": "https://www.wireshark.org/",
+		"winget": "UbiquitiInc.WiFimanDesktop"
+	},
+	"WPFInstallwinscp": {
+		"category": "Network",
+		"content": "WinSCP",
+		"description": "WinSCP is a free and open-source file manager, SSH File Transfer Protocol, File Transfer Protocol, WebDAV, Amazon S3, and secure copy protocol client for Microsoft Windows.",
+		"link": "https://winscp.net/eng/download.php",
+		"winget": "WinSCP.WinSCP"
+	},
 	"WPFInstallwireshark": {
-		"category": "Utilities",
+		"category": "Network",
 		"content": "WireShark",
 		"description": "Wireshark is a widely-used open-source network protocol analyzer. It allows users to capture and analyze network traffic in real-time, providing detailed insights into network activities.",
 		"link": "https://www.wireshark.org/",
@@ -4261,7 +4265,7 @@ $sync.configs.preset = '{
   "client": [
     "WPFInstall7zip",
     "WPFInstalladobe",
-    "WPFInstalmicrosoft365",
+    "WPFInstallmicrosoft365",
     "WPFInstallonedrive",
     "WPFInstallbitwarden",
     "WPFInstallteams"
@@ -4272,7 +4276,7 @@ $sync.configs.preset = '{
     "WPFInstalladvancedip",
     "WPFInstallgreenshot",
     "WPFInstalllocalsend",
-    "WPFInstalmicrosoft365",
+    "WPFInstallmicrosoft365",
     "WPFInstallonedrive",
     "WPFInstallOpenVPN",
     "WPFInstallpowershell",
@@ -4332,7 +4336,7 @@ $sync.configs.themes = '{
                    "ButtonUpdatesForegroundColor":  "#FFFFFF",
                    "ButtonBackgroundColor":  "#000019",
                    "ButtonBackgroundPressedColor":  "#FFFFFF",
-                   "ButtonBackgroundMouseoverColor":  "#b8aa8d",
+                   "ButtonBackgroundMouseoverColor":  "#38332a",
                    "ButtonBackgroundSelectedColor":  "#FFAC1C",
                    "ButtonForegroundColor":  "#cca365",
                    "ButtonBorderThickness":  "1",
@@ -4409,7 +4413,7 @@ $sync.configs.tweaks = '{
     "Description": " .",
     "category": "Tweaks",
     "panel": "1",
-    "Order": "a029_",
+    "Order": "a030_",
     "registry": [
       {
         "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -4506,6 +4510,14 @@ $sync.configs.tweaks = '{
     "category": "Customize Preferences",
     "panel": "2",
     "Order": "a064_",
+    "Type": "Toggle"
+  },
+  "WPFToggleLeftAlignTaskbar": {
+    "Content": "Left Align Taskbar",
+    "Description": "Aligns the taskbar left.",
+    "category": "Customize Preferences",
+    "panel": "2",
+    "Order": "a068_",
     "Type": "Toggle"
   },
   "WPFToggleSnapFlyout": {
@@ -4648,7 +4660,7 @@ function Get-TabXaml {
         $blockXml += "<Border Grid.Row=""1"" Grid.Column=""$panelcount"">`n<StackPanel Background=""{MainBackgroundColor}"" SnapsToDevicePixels=""True"">`n"
         $panelcount++
         foreach ($category in ($organizedData[$panel].Keys | Sort-Object)) {
-            $count++
+            # $count++
             if ($columncount -gt 0) {
                 $panelcount2 = [Int](($count)/$maxcount-0.5)
                 if ($panelcount -eq $panelcount2 ) {
@@ -4867,17 +4879,6 @@ $sync["Form"].Add_MouseLeftButtonDown({
         $sync["SettingsPopup"].IsOpen = $false
     }
     $sync["Form"].DragMove()
-})
-
-$sync["Form"].Add_MouseDoubleClick({
-    if ($sync["Form"].WindowState -eq [Windows.WindowState]::Normal)
-    {
-        $sync["Form"].WindowState = [Windows.WindowState]::Maximized;
-    }
-    else
-    {
-        $sync["Form"].WindowState = [Windows.WindowState]::Normal;
-    }
 })
 
 $sync["Form"].Add_Deactivated({
