@@ -442,7 +442,6 @@ Function Get-WinUtilToggleStatus {
         }
     }
     if ($ToggleSwitch -eq "WPFToggleLeftAlignTaskbar"){
-        New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAl -Force -Value 1 -PropertyType DWORD
         $LeftAlignEnabled = (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced").TaskbarAl
         if($LeftAlignEnabled -eq 0){
             return $true
@@ -606,16 +605,16 @@ Function Invoke-LITULeftAlignTaskbar {
     #>
     Param($LeftAlignEnabled)
     Try{
-        if ($LeftAlignEnabled -eq $true){
+        if ($LeftAlignEnabled -eq $false){
             Write-Host "Aligning Taskbar to the Left"
-            $LeftAlignValue = 0
+            New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarAl" -Force -Value 0 -PropertyType DWORD
+            
         }
         else {
             Write-Host "Centering Taskbar"
-            $LeftAlignValue = 1
+            Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarAl" -Force
+            
         }
-        $Path = "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced"
-        Set-ItemProperty -Path $Path -Name TaskbarAl -Value $LeftAlignValue
     }
     Catch [System.Security.SecurityException] {
         Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
