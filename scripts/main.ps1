@@ -99,7 +99,7 @@ function Get-TabXaml {
         $blockXml += "<Border Grid.Row=""1"" Grid.Column=""$panelcount"">`n<StackPanel Background=""{MainBackgroundColor}"" SnapsToDevicePixels=""True"">`n"
         $panelcount++
         foreach ($category in ($organizedData[$panel].Keys | Sort-Object)) {
-            $count++
+            # $count++
             if ($columncount -gt 0) {
                 $panelcount2 = [Int](($count)/$maxcount-0.5)
                 if ($panelcount -eq $panelcount2 ) {
