@@ -242,7 +242,7 @@
 		"content": "WiFiman Desktop",
 		"description": "UniFi Device Discovery.",
 		"link": "https://www.wireshark.org/",
-		"winget": "WiresharkFoundation.Wireshark"
+		"winget": "UbiquitiInc.WiFimanDesktop"
 	},
 	"WPFInstallwireshark": {
 		"category": "Utilities",
