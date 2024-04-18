@@ -3900,6 +3900,13 @@ $sync.configs.applications = '{
 		"link": "https://www.mozilla.org/en-US/firefox/new/",
 		"winget": "Mozilla.Firefox"
 	},
+	"WPFInstallflameshot": {
+		"category": "Multimedia Tools",
+		"content": "Flameshot",
+		"description": "Flameshot is a free and open-source, cross-platform tool to take screenshots with many built-in features to save you time.",
+		"link": "https://flameshot.org/",
+		"winget": "Flameshot.Flameshot"
+	},
 	"WPFInstallgimp": {
 		"category": "Multimedia Tools",
 		"content": "GIMP (Image Editor)",
