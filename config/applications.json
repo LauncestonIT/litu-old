@@ -237,6 +237,13 @@
 		"link": "https://code.visualstudio.com/",
 		"winget": "Git.Git;Microsoft.VisualStudioCode"
 	},
+	"WPFInstallwifimandesktop": {
+		"category": "Utilities",
+		"content": "WiFiman Desktop",
+		"description": "UniFi Device Discovery.",
+		"link": "https://www.wireshark.org/",
+		"winget": "WiresharkFoundation.Wireshark"
+	},
 	"WPFInstallwireshark": {
 		"category": "Utilities",
 		"content": "WireShark",
