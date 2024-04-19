@@ -504,7 +504,7 @@ Function Install-WinUtilProgramWinget {
     param(
         $ProgramsToInstall,
         $manage = "Installing",
-        $NoMachineScope = "9MVPHLK2M732S,Upscayl.Upscayl"
+        $NoMachineScope = "9MVPHLK2M732S,Upscayl.Upscayl,9NBLGGH5R558"
     )
 
     $x = 0
@@ -4047,6 +4047,13 @@ $sync.configs.applications = '{
 		"description": "Windows Terminal is a modern, fast, and efficient terminal application for command-line users, supporting multiple tabs, panes, and more.",
 		"link": "https://aka.ms/terminal",
 		"winget": "Microsoft.WindowsTerminal"
+	},
+	"WPFInstalltodo": {
+		"category": "Office",
+		"content": "Microsoft ToDo",
+		"description": "Microsoft To Do is a cloud-based task management application. It allows users to manage their tasks from a smartphone, tablet and computer.",
+		"link": "https://to-do.office.com",
+		"winget": "9NBLGGH5R558"
 	},
 	"WPFInstallupscayl": {
 		"category": "Multimedia Tools",

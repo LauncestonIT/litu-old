@@ -238,6 +238,13 @@
 		"link": "https://aka.ms/terminal",
 		"winget": "Microsoft.WindowsTerminal"
 	},
+	"WPFInstalltodo": {
+		"category": "Office",
+		"content": "Microsoft ToDo",
+		"description": "Microsoft To Do is a cloud-based task management application. It allows users to manage their tasks from a smartphone, tablet and computer.",
+		"link": "https://to-do.office.com",
+		"winget": "9NBLGGH5R558"
+	},
 	"WPFInstallupscayl": {
 		"category": "Multimedia Tools",
 		"content": "Upscayl (Image Upscaler)",
