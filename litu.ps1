@@ -3497,7 +3497,7 @@ $inputXML = '<Window x:Class="WinUtility.MainWindow"
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <Grid x:Name="toggleSwitch">
-                            <Border x:Name="Border" CornerRadius="10"
+                            <Border x:Name="Border" CornerRadius="12"
                                     Background="#FFFFFFFF"
                                     Width="70" Height="25">
                                 <Ellipse x:Name="Ellipse" Fill="#FFFFFFFF" Stretch="Uniform"
