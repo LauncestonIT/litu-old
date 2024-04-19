@@ -40,7 +40,7 @@ Add-Type -AssemblyName System.Windows.Forms
 # Variable to sync between runspaces
 $sync = [Hashtable]::Synchronized(@{})
 $sync.PSScriptRoot = $PSScriptRoot
-$sync.version = "24.04.18"
+$sync.version = "24.04.19"
 $sync.configs = @{}
 $sync.ProcessRunning = $false
 
@@ -504,7 +504,7 @@ Function Install-WinUtilProgramWinget {
     param(
         $ProgramsToInstall,
         $manage = "Installing",
-        $NoMachineScope = "9MVPHLK2M32S,8f5c6577-6b10-57e0-97b8-9d8b59d5f4d6"
+        $NoMachineScope = "9MVPHLK2M32S,8f5c6577-6b10-57e0-97b8-9d8b59d5f4d6,Upscayl.Upscayl"
     )
 
     $x = 0
@@ -4040,6 +4040,13 @@ $sync.configs.applications = '{
 		"description": "Windows Terminal is a modern, fast, and efficient terminal application for command-line users, supporting multiple tabs, panes, and more.",
 		"link": "https://aka.ms/terminal",
 		"winget": "Microsoft.WindowsTerminal"
+	},
+	"WPFInstallupscayl": {
+		"category": "Multimedia Tools",
+		"content": "Upscayl (Image Upscaler)",
+		"description": "Free and Open Source AI Image Upscaler for Linux, MacOS and Windows built with Linux-First philosophy.",
+		"link": "https://github.com/upscayl/upscayl",
+		"winget": "Upscayl.Upscayl"
 	},
 	"WPFInstallvlc": {
 		"category": "Multimedia Tools",

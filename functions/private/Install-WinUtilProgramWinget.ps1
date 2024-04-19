@@ -19,7 +19,7 @@ Function Install-WinUtilProgramWinget {
     param(
         $ProgramsToInstall,
         $manage = "Installing",
-        $NoMachineScope = "9MVPHLK2M32S,8f5c6577-6b10-57e0-97b8-9d8b59d5f4d6"
+        $NoMachineScope = "9MVPHLK2M32S,8f5c6577-6b10-57e0-97b8-9d8b59d5f4d6,Upscayl.Upscayl"
     )
 
     $x = 0
