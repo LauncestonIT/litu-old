@@ -504,7 +504,7 @@ Function Install-WinUtilProgramWinget {
     param(
         $ProgramsToInstall,
         $manage = "Installing",
-        $NoMachineScope = "9MVPHLK2M32S,8f5c6577-6b10-57e0-97b8-9d8b59d5f4d6,Upscayl.Upscayl"
+        $NoMachineScope = "9MVPHLK2M732S,Upscayl.Upscayl"
     )
 
     $x = 0
@@ -3977,6 +3977,13 @@ $sync.configs.applications = '{
 		"link": "https://nmap.org/",
 		"winget": "Insecure.Nmap"
 	},
+	"WPFInstallnotepadplusplus": {
+		"category": "Utilities",
+		"content": "Notepad++",
+		"description": "Notepad++ is a free source code editor and Notepad replacement that supports several languages.",
+		"link": "https://notepad-plus-plus.org/",
+		"winget": "Notepad++.Notepad++"
+	},
 	"WPFInstallonedrive": {
 		"category": "Office",
 		"content": "OneDrive",
@@ -4082,13 +4089,6 @@ $sync.configs.applications = '{
 		"description": "Wireshark is a widely-used open-source network protocol analyzer. It allows users to capture and analyze network traffic in real-time, providing detailed insights into network activities.",
 		"link": "https://www.wireshark.org/",
 		"winget": "WiresharkFoundation.Wireshark"
-	},
-	"WPFInstallzohoassist": {
-		"category": "Remote Support",
-		"content": "Zoho Assist",
-		"description": "Zoho Assist is a user-friendly, comprehensive remote access software that helps you quickly initiate secure remote support sessions.",
-		"link": "https://www.zoho.com/cliq/",
-		"winget": "8f5c6577-6b10-57e0-97b8-9d8b59d5f4d6"
 	},
 	"WPFInstallzohocliq": {
 		"category": "Communications",
