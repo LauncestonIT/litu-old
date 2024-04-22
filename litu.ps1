@@ -40,7 +40,7 @@ Add-Type -AssemblyName System.Windows.Forms
 # Variable to sync between runspaces
 $sync = [Hashtable]::Synchronized(@{})
 $sync.PSScriptRoot = $PSScriptRoot
-$sync.version = "24.04.19"
+$sync.version = "24.04.22"
 $sync.configs = @{}
 $sync.ProcessRunning = $false
 
@@ -504,7 +504,7 @@ Function Install-WinUtilProgramWinget {
     param(
         $ProgramsToInstall,
         $manage = "Installing",
-        $NoMachineScope = "9MVPHLK2M732S,Upscayl.Upscayl,9NBLGGH5R558"
+        $NoMachineScope = "9MVPHLK2M732S,Upscayl.Upscayl,9NBLGGH5R558,UbiquitiInc.WiFimanDesktop"
     )
 
     $x = 0

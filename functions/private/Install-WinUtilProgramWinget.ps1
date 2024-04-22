@@ -19,7 +19,7 @@ Function Install-WinUtilProgramWinget {
     param(
         $ProgramsToInstall,
         $manage = "Installing",
-        $NoMachineScope = "9MVPHLK2M732S,Upscayl.Upscayl,9NBLGGH5R558"
+        $NoMachineScope = "9MVPHLK2M732S,Upscayl.Upscayl,9NBLGGH5R558,UbiquitiInc.WiFimanDesktop"
     )
 
     $x = 0
